@@ -1,0 +1,43 @@
+﻿@model List<RentACar.Models.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a = 1;
+}
+
+
+
+<br />
+<a href="@Url.Action("Create","About")" class="btn btn-primary">About Yarat</a>
+
+<h2>Abot Siyahi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Basliq</td>
+            <td>Metn</td>
+            <td>Sekil</td>
+            <td>Duyme</td>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@a</td>
+            <td>@x.Basliq</td>
+            <td>@x.Metn</td>
+            
+            <td>
+                <a href="@Url.Action("UpdateAbout","About",new {Id=x.Id })" class="btn btn-info">Yenile</a>
+
+                <a href="@Url.Action("Delate","About" ,new { Id=x.Id})" class="btn btn-danger">Sil</a>
+            </td>
+
+            @{ a++;}
+
+        </tr>
+    }
+</table>

@@ -1,0 +1,73 @@
+﻿@model List<RentACar.Models.Car>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a = 1;
+}
+
+
+<br />
+<a class="btn btn-primary" href="@Url.Action("CarGetr","Car")">Masin ElaveEt</a>
+<h2>Blog siyahi</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Marka</td>
+                    <td>Model</td>
+                    <td>Suret Qutusu</td>
+                    <td>Sernisin Sayi</td>
+                    <td>Baqaj</td>
+                    <td>Kilometraj</td>
+                    <td>Sekil</td>
+                    <td>Tipi</td>
+                    <td>Sibif</td>
+                    <td>ElaveEdilmeTarixi</td>
+                    <td>Buraxilis ili</td>
+                    <td>Qiymet 1gun-3gun</td>
+                    <td>Qiymet 3gun-12gun</td>
+                    <td>Qiymet 12gun-30gun</td>
+                    <td>Qiymet 30gunden cox</td>
+                  
+                    <td>Duyme</td>
+                </tr>
+            </thead>
+            @foreach (var x in Model)
+            {
+        <tr>
+            <td>@a</td>
+            <td>@x.CarMarka.Ad</td>
+
+            <td>@x.Model</td>
+            <td>@x.SuretQutusu</td>
+            <td>@x.SernisinSayi</td>
+            <td>@x.Baqaj</td>
+
+            <td>@x.Klometraj</td>
+            <td><img src="~/Images/@x.Sekil" height="50px" /> </td>
+            <td>@x.CarType.Ad</td>
+            <td>@x.CarClass.Ad</td>
+            <td>@x.ElaveEdilmeTarixi</td>
+            <td>@x.Buraxilisili</td>
+            <td>@x.Qiymet1_3 $</td>
+            <td>@x.Qiymet4_12 $</td>
+            <td>@x.Qiymet12_30 $</td>
+            <td>@x.Qiymet30GundenCox $</td>
+
+            <td>
+                <a class="btn btn-info" href="@Url.Action("CarUpdate","Car",new { Id=x.Id})">Yenile</a>
+
+                <a class="btn btn-danger" href="@Url.Action("Delate","Car",new { Id=x.Id})">Sil</a>
+            </td>
+            @{ a++;}
+        </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

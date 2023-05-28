@@ -1,0 +1,293 @@
+﻿@model RentACar.Models.BlogDetailDto
+@{
+    ViewBag.Title = "BlogDetail";
+    Layout = "~/Views/Shared/_Panel2Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <title>Moveo - HTML Template | Blog Detail</title>
+     Stylesheets 
+    <link href="~/moveo-html/css/bootstrap.css" rel="stylesheet">
+    <link href="~/moveo-html/css/style.css" rel="stylesheet">
+    <link href="~/moveo-html/css/icons.css" rel="stylesheet">
+    <link href="~/moveo-html/css/responsive.css" rel="stylesheet">
+     Color Switcher Mockup 
+    <link href="~/moveo-html/css/color-switcher-design.css" rel="stylesheet">
+    Color Themes
+    <link id="theme-color-file" href="~/moveo-html/css/color-themes/default-theme.css" rel="stylesheet">
+    <link rel="shortcut icon" href="~/moveo-html/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="~/moveo-html/images/favicon.png" type="image/x-icon">
+     Responsive 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]
+    [if lt IE 9]><script src="~/moveo-html/js/respond.js"></script><![endif]
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        
+        <!-- End Main Header -->
+        <!-- Page Title -->
+        <section class="page-title" style="background-image: url(/moveo-html/images/background/11.jpg);">
+            <div class="auto-container">
+                <div class="inner-box">
+                    <h1>Bloq təfərrüatı</h1>
+                    <div class="bread-crumb"><a href="index-2.html">Home &nbsp; ||</a> <i class="current">Bloq təfərrüatı</i><a href="blog-detail.html">&nbsp; || Post</a></div>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title -->
+        <!-- Blog section -->
+        <section class="blog">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-lg-8 col-md-12">
+                        <!-- Post 1-->
+                        <div class="blog-post ">
+                            <div class="featured-image">
+                                <div class="featured-image wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <img src="~/Images/@Model.Blog.Sekil" alt="image">
+                                </div>
+                            </div>
+                            <div class="title">
+                                <h2>@Model.Blog.Baslig</h2>
+                            </div>
+                            <div class="metadata">
+                                <ul>
+                                    <li><span><i class="far fa-calendar-alt"></i>@Model.Blog.Tarix.ToString("dd.mm.yyyy")</span></li>
+                                    @*<li><span><i class="far fa-comment"></i>@Model.BlogComments.Count() Comments</span></li>*@
+                                    <li><span><i class="far fa-folder-open"></i>@Model.Blog.BlogCategory.Ad</span></li>
+                                </ul>
+                            </div>
+                            <!-- Content -->
+                            <div class="content">
+                                <p>@Model.Blog.Metn</p><br>
+                                
+                                <div class="row clearfix">
+                                    <!-- Content Block -->
+                                    <div class="detail-block col-lg-6 col-md-6 col-sm-12">
+                                        <div class="image wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                            <img src="~/Images/@Model.Blog.Sekil" alt="image">
+                                        </div>
+                                    </div>
+                                    <!-- Content Block -->
+                                    <div class="detail-block col-lg-6 col-md-6 col-sm-12">
+                                        <div class="image wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                            <img src="~/Images/@Model.Blog.Sekil" alt="image">
+                                        </div>
+                                    </div>
+                                    <!-- Quote -->
+                                    <div class="col-12">
+                                        <p>Aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.</p>
+                                        <div class="quote-block wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                            <p>Duis aute irure dolor reprehenderit voluptate velit cillum dolor fugiat nulla pariatur. Excepteur sint occae cacupidatat non proident sunt.</p>
+                                            <a href="#"> Denim Labor</a>
+                                        </div>
+                                        <p>
+                                            Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidat Non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnisiste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dicta.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Share Posts -->
+                            <div class="posts-share-links wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul>
+                                    <li class="share-links">Postu paylaşın</li>
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end post -->
+                        <!-- Comment section -->
+                        <div class="post-comments">
+                            <div class="title">
+                                <h2>Şərhlər</h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                            </div>
+                            <!-- Comment text -->
+                            @foreach (var x in Model.BlogComments)
+                            {
+                                <div class="content">
+                                    <div class="image wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                        <img style="height:70px;border-radius:100%"  src="~/Images/@x.User.Sekil" alt="image">
+                                    </div>
+                                    <div class="text">
+                                        <ul>
+                                            <li>@x.User.Ad @x.User.Soyad</li>
+                                            <li class="bars">||</li>
+                                            <li> October 5, 2021</li>
+                                            <li class="bars">||</li>
+                                            
+                                        </ul>
+                                        <p>@x.Metn</p>
+                                    </div>
+                                </div>
+                            }
+                            <!-- Comment text -->
+
+                        </div>
+                        <!-- Reply -->
+                        <div class="comment-reply">
+                            <div class="title">
+                                <h2>Cavab Göndər</h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                            </div>
+                            <!-- Comment reply area -->
+                            <form method="post" action="@Url.Action("BlogDetay","BlogPage",new {Id=Model.Blog.Id})">
+                                <div class="row clearfix">
+
+                                    
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Şərhləriniz</label>
+                                            <input type="text" name="Metn" id="website3" class="form-control" placeholder="Metn">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit">şərh yaz</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Blog sidebar -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="blog-sidebar">
+                            <!-- Search widget -->
+                            <div class="blog-widget search-widget wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <form method="post" action="@Url.Action("Index", "BlogPage")">
+                                    <div class="form-group">
+
+                                        <label>Axdar</label>
+                                        <button type="submit" style="background-color:orangered; border-radius:15px; float:right; margin-bottom:5px; width:50px;height:35px;" id="submit" class="btn_1"> Axdar</button>
+
+                                        <input type="text" name="p" placeholder="Blog Baslq">
+
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End search widget -->
+                            <!-- Recent posts widget -->
+                            <div class="blog-widget recent-post-widget">
+                                <h2>
+                                    Son Bloqlar
+                                </h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+
+                                @foreach (var x in Model.Blog3)
+                                {
+                                    <div class="text wow fadeInRight" data-wow-delay="0ms" data-wow-duration="500ms">
+                                        <div class="image">
+                                            <img height="50px;" width="90px;" src="~/Images/@x.Sekil" alt="post">
+                                        </div>
+                                        <h3><a href="#">@x.Baslig</a></h3>
+                                        <span>@x.Tarix</span>
+                                    </div>
+                                }
+
+
+
+                            </div>
+                            <!-- End widget -->
+                            <!-- Categories widget -->
+                            <div class="blog-widget categories-widget wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <h2>Kateqoriyalar</h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                                <div class="catigories-list">
+                                    <ul>
+                                        @foreach (var x in Model.BlogCategories)
+                                        {
+                                            <li><span><a href="@Url.Action("Index","BlogPage", new {CatId = x.Id })">@x.Ad (@x.Blogs.Count())</a></span></li>
+                                        }
+                                        </ul>
+                                </div>
+                            </div>
+                            <!-- End Categories -->
+                            <!-- Add -->
+                            <div class="blog-widget blog-add" style="background-image: url(/moveo-html/images/background/18.png);">
+                                <h2>Sevimli avtomobiliniz həmişə mövcuddur.</h2>
+                                <a href="#" class="theme-btn btn-style-two"><span>bron etməyə başlayın</span></a>
+                                <div class="image">
+                                    <img src="~/moveo-html/images/resource/cars2.png" alt="image" class="wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                </div>
+                            </div>
+                            <!-- End widget -->
+                            <!-- Tags widget -->
+                            <div class="blog-widget tags-widget wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <h2>Teqlər </h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                                <div class="tags-list">
+                                    <ul>
+                                        @foreach (var x in Model.Tegs)
+                                        {
+                                            <li><a href="@Url.Action("Index","BlogPage", new {TagId = x.Id })">@x.Ad</a></li>
+                                        }
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Tags -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call To Action Section Two -->
+        <section class="call-to-action-section-two">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!-- Title Column -->
+                    <div class="title-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="inner-column">
+
+                            <div class="text"><h2>Hamınız üçün Bizi Rezerv edin<br />
+                                                  Lüks Nəqliyyat Ehtiyacları</h2></div>
+                            <div class="icon flaticon-support-2"></div>
+                        </div>
+                    </div>
+                    <!-- Info Column -->
+                    <div class="info-column col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="title">Sürətli Canlı Yardım üçün</div>
+                            <div class="rating">
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                            </div>
+                            <a class="phone" href="tel:369-2900-4800">(369) 2900 4800</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Call To Action Section Two -->
+        <!-- Main Footer -->
+        
+        <!-- End Main Footer -->
+    </div>
+    
+</body>
+
+<!-- Mirrored from www.shmai.com/preview/moveo-html/blog-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jul 2022 18:00:36 GMT -->
+</html>

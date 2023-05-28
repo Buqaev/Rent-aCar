@@ -1,0 +1,1396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentaCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abouts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basliq" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Metn" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Unvan" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogCategorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogComments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Metn" Type="ntext" Nullable="false" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslig" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Metn" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Tarix" Type="datetime" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="BlogCategorysId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarKarusels">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarMarkas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="SuretQutusu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SernisinSayi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Baqaj" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Klometraj" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Buraxilisili" Type="datetime" Nullable="false" />
+          <Property Name="ElaveEdilmeTarixi" Type="datetime" Nullable="false" />
+          <Property Name="Qiymet1-3" Type="int" Nullable="false" />
+          <Property Name="Qiymet4-12" Type="int" Nullable="false" />
+          <Property Name="Qiymet12-30" Type="int" Nullable="false" />
+          <Property Name="Qiymet30GundenCox" Type="int" Nullable="false" />
+          <Property Name="CarMarkalId" Type="int" Nullable="false" />
+          <Property Name="CarClassId" Type="int" Nullable="false" />
+          <Property Name="CarTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarsReviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Metn" Type="ntext" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Ulduzsayi" Type="int" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChechBoxes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CloudBlogAndTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+          <Property Name="TegId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CloudRezervChechBox">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RezervId" Type="int" Nullable="false" />
+          <Property Name="ChechBoxesId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Metn" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mundericat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Metn" Type="ntext" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OurStorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basliq" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Metn" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reklams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basliq" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Metn" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rezervs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unvan" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Seker" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Olke" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KartSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="AlinmaTarix" Type="datetime" Nullable="false" />
+          <Property Name="QaytarilmaTarix" Type="datetime" Nullable="false" />
+          <Property Name="UmmiMebleg" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RightSides">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslig" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Metn" Type="nvarchar" MaxLength="350" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslig" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Metn" Type="ntext" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tegs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Sekil" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Xidmets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basliq" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Metn" Type="ntext" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BlogComments_Blogs">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_Blogs1">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blogs_BlogCategorys">
+          <End Role="BlogCategorys" Type="Self.BlogCategorys" Multiplicity="1" />
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="BlogCategorysId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarKarusels_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="CarKarusels" Type="Self.CarKarusels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarKarusels">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_CarClass">
+          <End Role="CarClass" Type="Self.CarClass" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="CarClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_Cars">
+          <End Role="CarMarkas" Type="Self.CarMarkas" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMarkas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="CarMarkalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_CarTypes">
+          <End Role="CarTypes" Type="Self.CarTypes" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="CarTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarsReviews_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="CarsReviews" Type="Self.CarsReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsReviews">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarsReviews_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="CarsReviews" Type="Self.CarsReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsReviews">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudBlogAndTag_Blogs">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1" />
+          <End Role="CloudBlogAndTag" Type="Self.CloudBlogAndTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudBlogAndTag">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudBlogAndTag_Tegs">
+          <End Role="Tegs" Type="Self.Tegs" Multiplicity="1" />
+          <End Role="CloudBlogAndTag" Type="Self.CloudBlogAndTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tegs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudBlogAndTag">
+              <PropertyRef Name="TegId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudRezervChechBox_ChechBoxes">
+          <End Role="ChechBoxes" Type="Self.ChechBoxes" Multiplicity="1" />
+          <End Role="CloudRezervChechBox" Type="Self.CloudRezervChechBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChechBoxes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudRezervChechBox">
+              <PropertyRef Name="ChechBoxesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudRezervChechBox_CloudRezervChechBox">
+          <End Role="Rezervs" Type="Self.Rezervs" Multiplicity="1" />
+          <End Role="CloudRezervChechBox" Type="Self.CloudRezervChechBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezervs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudRezervChechBox">
+              <PropertyRef Name="RezervId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerReview_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="CustomerReview" Type="Self.CustomerReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerReview">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervs_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="Rezervs" Type="Self.Rezervs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rezervs">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervs_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Rezervs" Type="Self.Rezervs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rezervs">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RentaCarModelStoreContainer">
+          <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogCategorys" EntityType="Self.BlogCategorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarClass" EntityType="Self.CarClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarKarusels" EntityType="Self.CarKarusels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarMarkas" EntityType="Self.CarMarkas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarsReviews" EntityType="Self.CarsReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarTypes" EntityType="Self.CarTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChechBoxes" EntityType="Self.ChechBoxes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CloudBlogAndTag" EntityType="Self.CloudBlogAndTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CloudRezervChechBox" EntityType="Self.CloudRezervChechBox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerReview" EntityType="Self.CustomerReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mundericat" EntityType="Self.Mundericat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OurStorys" EntityType="Self.OurStorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reklams" EntityType="Self.Reklams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezervs" EntityType="Self.Rezervs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RightSides" EntityType="Self.RightSides" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tegs" EntityType="Self.Tegs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Xidmets" EntityType="Self.Xidmets" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BlogComments_Blogs" Association="Self.FK_BlogComments_Blogs">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_Blogs1" Association="Self.FK_BlogComments_Blogs1">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blogs_BlogCategorys" Association="Self.FK_Blogs_BlogCategorys">
+            <End Role="BlogCategorys" EntitySet="BlogCategorys" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarKarusels_Cars" Association="Self.FK_CarKarusels_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarKarusels" EntitySet="CarKarusels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_CarClass" Association="Self.FK_Cars_CarClass">
+            <End Role="CarClass" EntitySet="CarClass" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_Cars" Association="Self.FK_Cars_Cars">
+            <End Role="CarMarkas" EntitySet="CarMarkas" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_CarTypes" Association="Self.FK_Cars_CarTypes">
+            <End Role="CarTypes" EntitySet="CarTypes" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarsReviews_Cars" Association="Self.FK_CarsReviews_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarsReviews" EntitySet="CarsReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarsReviews_Users" Association="Self.FK_CarsReviews_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CarsReviews" EntitySet="CarsReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudBlogAndTag_Blogs" Association="Self.FK_CloudBlogAndTag_Blogs">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="CloudBlogAndTag" EntitySet="CloudBlogAndTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudBlogAndTag_Tegs" Association="Self.FK_CloudBlogAndTag_Tegs">
+            <End Role="Tegs" EntitySet="Tegs" />
+            <End Role="CloudBlogAndTag" EntitySet="CloudBlogAndTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudRezervChechBox_ChechBoxes" Association="Self.FK_CloudRezervChechBox_ChechBoxes">
+            <End Role="ChechBoxes" EntitySet="ChechBoxes" />
+            <End Role="CloudRezervChechBox" EntitySet="CloudRezervChechBox" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudRezervChechBox_CloudRezervChechBox" Association="Self.FK_CloudRezervChechBox_CloudRezervChechBox">
+            <End Role="Rezervs" EntitySet="Rezervs" />
+            <End Role="CloudRezervChechBox" EntitySet="CloudRezervChechBox" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerReview_Users" Association="Self.FK_CustomerReview_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CustomerReview" EntitySet="CustomerReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervs_Cars" Association="Self.FK_Rezervs_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Rezervs" EntitySet="Rezervs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervs_Users" Association="Self.FK_Rezervs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Rezervs" EntitySet="Rezervs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentaCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Basliq" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unvan" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Blogs" Relationship="Self.FK_Blogs_BlogCategorys" FromRole="BlogCategorys" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Metn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BlogComments_Blogs" FromRole="BlogComments" ToRole="Users" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK_BlogComments_Blogs1" FromRole="BlogComments" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslig" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tarix" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sekil" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="BlogCategorysId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BlogCategory" Relationship="Self.FK_Blogs_BlogCategorys" FromRole="Blogs" ToRole="BlogCategorys" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.FK_BlogComments_Blogs1" FromRole="Blogs" ToRole="BlogComments" />
+          <NavigationProperty Name="CloudBlogAndTags" Relationship="Self.FK_CloudBlogAndTag_Blogs" FromRole="Blogs" ToRole="CloudBlogAndTag" />
+        </EntityType>
+        <EntityType Name="CarClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_CarClass" FromRole="CarClass" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="CarKarusel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sekil" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_CarKarusels_Cars" FromRole="CarKarusels" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="CarMarka">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Logo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Cars" FromRole="CarMarkas" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SuretQutusu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SernisinSayi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Baqaj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Klometraj" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Sekil" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Buraxilisili" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ElaveEdilmeTarixi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Qiymet1_3" Type="Int32" Nullable="false" />
+          <Property Name="Qiymet4_12" Type="Int32" Nullable="false" />
+          <Property Name="Qiymet12_30" Type="Int32" Nullable="false" />
+          <Property Name="Qiymet30GundenCox" Type="Int32" Nullable="false" />
+          <Property Name="CarMarkalId" Type="Int32" Nullable="false" />
+          <Property Name="CarClassId" Type="Int32" Nullable="false" />
+          <Property Name="CarTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarClass" Relationship="Self.FK_Cars_CarClass" FromRole="Cars" ToRole="CarClass" />
+          <NavigationProperty Name="CarKarusels" Relationship="Self.FK_CarKarusels_Cars" FromRole="Cars" ToRole="CarKarusels" />
+          <NavigationProperty Name="CarMarka" Relationship="Self.FK_Cars_Cars" FromRole="Cars" ToRole="CarMarkas" />
+          <NavigationProperty Name="CarType" Relationship="Self.FK_Cars_CarTypes" FromRole="Cars" ToRole="CarTypes" />
+          <NavigationProperty Name="CarsReviews" Relationship="Self.FK_CarsReviews_Cars" FromRole="Cars" ToRole="CarsReviews" />
+          <NavigationProperty Name="Rezervs" Relationship="RentaCarModel.FK_Rezervs_Cars" FromRole="Car" ToRole="Rezerv" />
+        </EntityType>
+        <EntityType Name="CarsReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Metn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Ulduzsayi" Type="Int32" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_CarsReviews_Cars" FromRole="CarsReviews" ToRole="Cars" />
+          <NavigationProperty Name="User" Relationship="Self.FK_CarsReviews_Users" FromRole="CarsReviews" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="CarType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_CarTypes" FromRole="CarTypes" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ChechBox">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CloudRezervChechBoxes" Relationship="Self.FK_CloudRezervChechBox_ChechBoxes" FromRole="ChechBoxes" ToRole="CloudRezervChechBox" />
+        </EntityType>
+        <EntityType Name="CloudBlogAndTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <Property Name="TegId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK_CloudBlogAndTag_Blogs" FromRole="CloudBlogAndTag" ToRole="Blogs" />
+          <NavigationProperty Name="Teg" Relationship="Self.FK_CloudBlogAndTag_Tegs" FromRole="CloudBlogAndTag" ToRole="Tegs" />
+        </EntityType>
+        <EntityType Name="CloudRezervChechBox">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RezervId" Type="Int32" Nullable="false" />
+          <Property Name="ChechBoxesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ChechBox" Relationship="Self.FK_CloudRezervChechBox_ChechBoxes" FromRole="CloudRezervChechBox" ToRole="ChechBoxes" />
+          <NavigationProperty Name="Rezerv" Relationship="RentaCarModel.FK_CloudRezervChechBox_CloudRezervChechBox" FromRole="CloudRezervChechBox" ToRole="Rezerv" />
+        </EntityType>
+        <EntityType Name="CustomerReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Metn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_CustomerReview_Users" FromRole="CustomerReview" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Mundericat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OurStory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Basliq" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Sekil" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reklam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Basliq" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Sekil" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RightSide">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslig" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslig" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Sekil" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CloudBlogAndTags" Relationship="Self.FK_CloudBlogAndTag_Tegs" FromRole="Tegs" ToRole="CloudBlogAndTag" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sekil" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.FK_BlogComments_Blogs" FromRole="Users" ToRole="BlogComments" />
+          <NavigationProperty Name="CarsReviews" Relationship="Self.FK_CarsReviews_Users" FromRole="Users" ToRole="CarsReviews" />
+          <NavigationProperty Name="CustomerReviews" Relationship="Self.FK_CustomerReview_Users" FromRole="Users" ToRole="CustomerReview" />
+          <NavigationProperty Name="Rezervs" Relationship="RentaCarModel.FK_Rezervs_Users" FromRole="User" ToRole="Rezerv" />
+        </EntityType>
+        <EntityType Name="Xidmet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Basliq" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Metn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Blogs_BlogCategorys">
+          <End Role="BlogCategorys" Type="Self.BlogCategory" Multiplicity="1" />
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="BlogCategorysId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_Blogs">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_Blogs1">
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudBlogAndTag_Blogs">
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="1" />
+          <End Role="CloudBlogAndTag" Type="Self.CloudBlogAndTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudBlogAndTag">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_CarClass">
+          <End Role="CarClass" Type="Self.CarClass" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="CarClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarKarusels_Cars">
+          <End Role="Cars" Type="Self.Car" Multiplicity="1" />
+          <End Role="CarKarusels" Type="Self.CarKarusel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarKarusels">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_Cars">
+          <End Role="CarMarkas" Type="Self.CarMarka" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMarkas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="CarMarkalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_CarTypes">
+          <End Role="CarTypes" Type="Self.CarType" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="CarTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarsReviews_Cars">
+          <End Role="Cars" Type="Self.Car" Multiplicity="1" />
+          <End Role="CarsReviews" Type="Self.CarsReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsReviews">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarsReviews_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="CarsReviews" Type="Self.CarsReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsReviews">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudRezervChechBox_ChechBoxes">
+          <End Role="ChechBoxes" Type="Self.ChechBox" Multiplicity="1" />
+          <End Role="CloudRezervChechBox" Type="Self.CloudRezervChechBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChechBoxes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudRezervChechBox">
+              <PropertyRef Name="ChechBoxesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudBlogAndTag_Tegs">
+          <End Role="Tegs" Type="Self.Teg" Multiplicity="1" />
+          <End Role="CloudBlogAndTag" Type="Self.CloudBlogAndTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tegs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudBlogAndTag">
+              <PropertyRef Name="TegId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerReview_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="CustomerReview" Type="Self.CustomerReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerReview">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="BlogCategorys" EntityType="Self.BlogCategory" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="CarClasses" EntityType="Self.CarClass" />
+          <EntitySet Name="CarKarusels" EntityType="Self.CarKarusel" />
+          <EntitySet Name="CarMarkas" EntityType="Self.CarMarka" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="CarsReviews" EntityType="Self.CarsReview" />
+          <EntitySet Name="CarTypes" EntityType="Self.CarType" />
+          <EntitySet Name="ChechBoxes" EntityType="Self.ChechBox" />
+          <EntitySet Name="CloudBlogAndTags" EntityType="Self.CloudBlogAndTag" />
+          <EntitySet Name="CloudRezervChechBoxes" EntityType="Self.CloudRezervChechBox" />
+          <EntitySet Name="CustomerReviews" EntityType="Self.CustomerReview" />
+          <EntitySet Name="Mundericats" EntityType="Self.Mundericat" />
+          <EntitySet Name="OurStorys" EntityType="Self.OurStory" />
+          <EntitySet Name="Reklams" EntityType="Self.Reklam" />
+          <EntitySet Name="RightSides" EntityType="Self.RightSide" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="Tegs" EntityType="Self.Teg" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Xidmets" EntityType="Self.Xidmet" />
+          <AssociationSet Name="FK_Blogs_BlogCategorys" Association="Self.FK_Blogs_BlogCategorys">
+            <End Role="BlogCategorys" EntitySet="BlogCategorys" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_Blogs" Association="Self.FK_BlogComments_Blogs">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_Blogs1" Association="Self.FK_BlogComments_Blogs1">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudBlogAndTag_Blogs" Association="Self.FK_CloudBlogAndTag_Blogs">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="CloudBlogAndTag" EntitySet="CloudBlogAndTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_CarClass" Association="Self.FK_Cars_CarClass">
+            <End Role="CarClass" EntitySet="CarClasses" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarKarusels_Cars" Association="Self.FK_CarKarusels_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarKarusels" EntitySet="CarKarusels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_Cars" Association="Self.FK_Cars_Cars">
+            <End Role="CarMarkas" EntitySet="CarMarkas" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_CarTypes" Association="Self.FK_Cars_CarTypes">
+            <End Role="CarTypes" EntitySet="CarTypes" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarsReviews_Cars" Association="Self.FK_CarsReviews_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarsReviews" EntitySet="CarsReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarsReviews_Users" Association="Self.FK_CarsReviews_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CarsReviews" EntitySet="CarsReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudRezervChechBox_ChechBoxes" Association="Self.FK_CloudRezervChechBox_ChechBoxes">
+            <End Role="ChechBoxes" EntitySet="ChechBoxes" />
+            <End Role="CloudRezervChechBox" EntitySet="CloudRezervChechBoxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudBlogAndTag_Tegs" Association="Self.FK_CloudBlogAndTag_Tegs">
+            <End Role="Tegs" EntitySet="Tegs" />
+            <End Role="CloudBlogAndTag" EntitySet="CloudBlogAndTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerReview_Users" Association="Self.FK_CustomerReview_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CustomerReview" EntitySet="CustomerReviews" />
+          </AssociationSet>
+          <EntitySet Name="Rezervs" EntityType="RentaCarModel.Rezerv" />
+          <AssociationSet Name="FK_Rezervs_Cars" Association="RentaCarModel.FK_Rezervs_Cars">
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="Rezerv" EntitySet="Rezervs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CloudRezervChechBox_CloudRezervChechBox" Association="RentaCarModel.FK_CloudRezervChechBox_CloudRezervChechBox">
+            <End Role="Rezerv" EntitySet="Rezervs" />
+            <End Role="CloudRezervChechBox" EntitySet="CloudRezervChechBoxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervs_Users" Association="RentaCarModel.FK_Rezervs_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Rezerv" EntitySet="Rezervs" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Rezerv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unvan" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Seker" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Olke" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KartSifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="AlinmaTarix" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="QaytarilmaTarix" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UmmiMebleg" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="RentaCarModel.FK_Rezervs_Cars" FromRole="Rezerv" ToRole="Car" />
+          <NavigationProperty Name="CloudRezervChechBoxes" Relationship="RentaCarModel.FK_CloudRezervChechBox_CloudRezervChechBox" FromRole="Rezerv" ToRole="CloudRezervChechBox" />
+          <NavigationProperty Name="User" Relationship="RentaCarModel.FK_Rezervs_Users" FromRole="Rezerv" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Rezervs_Cars">
+          <End Type="RentaCarModel.Car" Role="Car" Multiplicity="1" />
+          <End Type="RentaCarModel.Rezerv" Role="Rezerv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rezerv">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CloudRezervChechBox_CloudRezervChechBox">
+          <End Type="RentaCarModel.Rezerv" Role="Rezerv" Multiplicity="1" />
+          <End Type="RentaCarModel.CloudRezervChechBox" Role="CloudRezervChechBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezerv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CloudRezervChechBox">
+              <PropertyRef Name="RezervId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervs_Users">
+          <End Type="RentaCarModel.User" Role="User" Multiplicity="1" />
+          <End Type="RentaCarModel.Rezerv" Role="Rezerv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rezerv">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentaCarModelStoreContainer" CdmEntityContainer="CarEntities1">
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="RentaCarModel.About">
+              <MappingFragment StoreEntitySet="Abouts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Basliq" ColumnName="Basliq" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="RentaCarModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogCategorys">
+            <EntityTypeMapping TypeName="RentaCarModel.BlogCategory">
+              <MappingFragment StoreEntitySet="BlogCategorys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogComments">
+            <EntityTypeMapping TypeName="RentaCarModel.BlogComment">
+              <MappingFragment StoreEntitySet="BlogComments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="RentaCarModel.Blog">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Baslig" ColumnName="Baslig" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Tarix" ColumnName="Tarix" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BlogCategorysId" ColumnName="BlogCategorysId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarClasses">
+            <EntityTypeMapping TypeName="RentaCarModel.CarClass">
+              <MappingFragment StoreEntitySet="CarClass">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarKarusels">
+            <EntityTypeMapping TypeName="RentaCarModel.CarKarusel">
+              <MappingFragment StoreEntitySet="CarKarusels">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarMarkas">
+            <EntityTypeMapping TypeName="RentaCarModel.CarMarka">
+              <MappingFragment StoreEntitySet="CarMarkas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="RentaCarModel.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SuretQutusu" ColumnName="SuretQutusu" />
+                <ScalarProperty Name="SernisinSayi" ColumnName="SernisinSayi" />
+                <ScalarProperty Name="Baqaj" ColumnName="Baqaj" />
+                <ScalarProperty Name="Klometraj" ColumnName="Klometraj" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+                <ScalarProperty Name="Buraxilisili" ColumnName="Buraxilisili" />
+                <ScalarProperty Name="ElaveEdilmeTarixi" ColumnName="ElaveEdilmeTarixi" />
+                <ScalarProperty Name="Qiymet1_3" ColumnName="Qiymet1-3" />
+                <ScalarProperty Name="Qiymet4_12" ColumnName="Qiymet4-12" />
+                <ScalarProperty Name="Qiymet12_30" ColumnName="Qiymet12-30" />
+                <ScalarProperty Name="Qiymet30GundenCox" ColumnName="Qiymet30GundenCox" />
+                <ScalarProperty Name="CarMarkalId" ColumnName="CarMarkalId" />
+                <ScalarProperty Name="CarClassId" ColumnName="CarClassId" />
+                <ScalarProperty Name="CarTypeId" ColumnName="CarTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarsReviews">
+            <EntityTypeMapping TypeName="RentaCarModel.CarsReview">
+              <MappingFragment StoreEntitySet="CarsReviews">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Ulduzsayi" ColumnName="Ulduzsayi" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarTypes">
+            <EntityTypeMapping TypeName="RentaCarModel.CarType">
+              <MappingFragment StoreEntitySet="CarTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChechBoxes">
+            <EntityTypeMapping TypeName="RentaCarModel.ChechBox">
+              <MappingFragment StoreEntitySet="ChechBoxes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CloudBlogAndTags">
+            <EntityTypeMapping TypeName="RentaCarModel.CloudBlogAndTag">
+              <MappingFragment StoreEntitySet="CloudBlogAndTag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="TegId" ColumnName="TegId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CloudRezervChechBoxes">
+            <EntityTypeMapping TypeName="RentaCarModel.CloudRezervChechBox">
+              <MappingFragment StoreEntitySet="CloudRezervChechBox">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RezervId" ColumnName="RezervId" />
+                <ScalarProperty Name="ChechBoxesId" ColumnName="ChechBoxesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerReviews">
+            <EntityTypeMapping TypeName="RentaCarModel.CustomerReview">
+              <MappingFragment StoreEntitySet="CustomerReview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mundericats">
+            <EntityTypeMapping TypeName="RentaCarModel.Mundericat">
+              <MappingFragment StoreEntitySet="Mundericat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OurStorys">
+            <EntityTypeMapping TypeName="RentaCarModel.OurStory">
+              <MappingFragment StoreEntitySet="OurStorys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Basliq" ColumnName="Basliq" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reklams">
+            <EntityTypeMapping TypeName="RentaCarModel.Reklam">
+              <MappingFragment StoreEntitySet="Reklams">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Basliq" ColumnName="Basliq" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RightSides">
+            <EntityTypeMapping TypeName="RentaCarModel.RightSide">
+              <MappingFragment StoreEntitySet="RightSides">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Baslig" ColumnName="Baslig" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="RentaCarModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Baslig" ColumnName="Baslig" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tegs">
+            <EntityTypeMapping TypeName="RentaCarModel.Teg">
+              <MappingFragment StoreEntitySet="Tegs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RentaCarModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Sekil" ColumnName="Sekil" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Xidmets">
+            <EntityTypeMapping TypeName="RentaCarModel.Xidmet">
+              <MappingFragment StoreEntitySet="Xidmets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Basliq" ColumnName="Basliq" />
+                <ScalarProperty Name="Metn" ColumnName="Metn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezervs">
+            <EntityTypeMapping TypeName="RentaCarModel.Rezerv">
+              <MappingFragment StoreEntitySet="Rezervs">
+                <ScalarProperty Name="UmmiMebleg" ColumnName="UmmiMebleg" />
+                <ScalarProperty Name="QaytarilmaTarix" ColumnName="QaytarilmaTarix" />
+                <ScalarProperty Name="AlinmaTarix" ColumnName="AlinmaTarix" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="KartSifre" ColumnName="KartSifre" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Olke" ColumnName="Olke" />
+                <ScalarProperty Name="Seker" ColumnName="Seker" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

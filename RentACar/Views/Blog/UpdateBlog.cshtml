@@ -1,0 +1,64 @@
+﻿@model RentACar.Models.Blog
+@{
+    ViewBag.Title = "UpdateBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Xeber Yenile</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form method="post" action="@Url.Action("Update","Blog", new {Id = Model.Id })" enctype="multipart/form-data" role="form">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Baslig</label>
+                    <input type="text" value="@Model.Baslig" name="Baslig" class="form-control" id="exampleInputEmail1" placeholder="Ad Basliq Edin">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Metn</label>
+                    <input type="text" name="Metn" value="@Model.Metn" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Kateqoriya</label>
+                    <select name="BlogCategorysId" class="form-control">
+                        <option>--Secin</option>
+                        @foreach (var cat in ViewBag.Categories)
+                        {
+                            @*<option @if (cat.Id == Model.CategoryId) { "selected"} else { ""} value="@cat.Id">@cat.Name</option>*@
+                            <option @(cat.Id == Model.BlogCategorysId ? "selected" : " ") value="@cat.Id">@cat.Ad</option>
+                        }
+
+                    </select>
+                </div>
+
+                 <img src="~/Images/@Model.Sekil" height="150" />
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Sekil</label>
+                    <input type="file" name="Sekil" class="form-control" id="exampleInputEmail1">
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Yenile</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+    <!-- Form Element sizes -->
+
+
+
+</div>

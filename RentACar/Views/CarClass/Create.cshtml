@@ -1,0 +1,25 @@
+﻿@model RentACar.Models.CarClass
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Yarat</h2>
+<form method="post" action="@Url.Action("Create","CarClass")" enctype="multipart/form-data" role="form">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Ad</label>
+            <input type="text" name="Ad" class="form-control" id="exampleInputEmail1" placeholder="Ad Basliq Edin">
+        </div>
+       
+
+
+
+        
+
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Yarat</button>
+    </div>
+</form>

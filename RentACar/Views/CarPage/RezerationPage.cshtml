@@ -1,0 +1,301 @@
+﻿@model RentACar.Models.Rezerv
+@{
+    ViewBag.Title = "RezerationPage";
+    Layout = "~/Views/Shared/_Panel2Layout.cshtml";
+}
+
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        
+    
+        <section class="listing-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="title">
+                            <span>step-01</span>
+                            <h2>Basic Information</h2>
+                            <div class="image">
+                                <i class="icon-shape icon-Shap-01"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Basic Information form -->
+                <form method="post" action="@Url.Action("Rezeration","CarPage",new {Id=Model.Id})">
+
+                    <div class="row clearfix">
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="Unvan" placeholder="Main title">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="Seher" placeholder="Add your tags">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="Olke" placeholder="Add your tags">
+                            </div>
+                            <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="Adres" placeholder="Add your tags">
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <select class="custom-select-box" id="ui-id-1" style="display: none;">
+                                    <option>All Categories</option>
+                                    <option>Limo One</option>
+                                    <option>Limo Two</option>
+                                    <option>Limo Three</option>
+                                    <option>Limo Four</option>
+                                </select>
+                            </div>
+                        </div>*@
+                        <!-- Text Area -->
+                        <div class="col-12">
+                            <textarea placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- End section -->
+        <!-- Location information section -->
+        <!--<section class="listing-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="title">
+                            <span>step-02</span>
+                            <h2>Location Information</h2>
+                            <div class="image">
+                                <i class="icon-shape icon-Shap-01"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- Location Information form -->
+                <!--<form>
+                    <div class="row clearfix">
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name3" placeholder="Address 1">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name4" placeholder="Address 1">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <select class="custom-select-box" id="ui-id-2" style="display: none;">
+                                    <option>State</option>
+                                    <option>Limo One</option>
+                                    <option>Limo Two</option>
+                                    <option>Limo Three</option>
+                                    <option>Limo Four</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name5" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name6" placeholder="Zip Code">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <select class="custom-select-box" id="ui-id-3" style="display: none;">
+                                    <option>Country</option>
+                                    <option>Cuntry1</option>
+                                    <option>Cuntry2</option>
+                                    <option>Cuntry3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>-->
+        <!-- End Section -->
+        <!-- Medi Files selection -->
+        
+        <!-- End Section -->
+        <!-- Vehicle features -->
+        <!--<section class="listing-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="title">
+                            <span>step-04</span>
+                            <h2>Location Information</h2>
+                            <div class="image">
+                                <i class="icon-shape icon-Shap-01"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- Vechile Features fields -->
+                <!--<form class="form">
+                    <div class="row clearfix">-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle1"> GPS Facility
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle2"> Air Conditioning
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle3"> Smoking Allowed
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle4"> Free Wifi
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle5"> Accessories
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle6"> Refrigrator
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle7"> Cruise Control
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle8"> Outdoor Seating
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle8"> Instant Booking
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle9"> Parties & Funtions
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle10"> Certified Vehicle
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle11"> With Chauffeure
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle11"> Luxurious Interior
+                            </div>
+                        </div>-->
+                        <!-- Vehicle featured block -->
+                        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle11"> Interior Lighting Effects
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>-->
+        <!-- End Section -->
+        <!-- Contact detail section -->
+        <!--<section class="listing-section " style="padding-bottom: 100px;padding-top: 75px;">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="title">
+                            <span>step-05</span>
+                            <h2>Contact Details</h2>
+                            <div class="image">
+                                <i class="icon-shape icon-Shap-01"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- Basic Information form -->
+                <!--<form>
+                    <div class="row clearfix">
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name8" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name9" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="name10" placeholder="Phone(Optional)">
+                            </div>
+                        </div>
+                        <div class="col-12 terms-cond">
+                            <input type="checkbox"><span>
+                                I Agree To Company’s <a href="#">
+                                    Terms Of Services &
+                                    Conditions
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <button type="submit">add listings</button>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+        <!-- End section -->
+        
+    </div>
+   
+
+</body>

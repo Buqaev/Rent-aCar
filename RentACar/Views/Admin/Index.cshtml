@@ -1,0 +1,47 @@
+﻿@model List<RentACar.Models.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a = 1;
+}
+
+<h2>Admin</h2>
+<a href="@Url.Action("CixisEt", "Register")" class="btn btn-danger">Cixiş</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <td>#</td>
+        <td>Ad</td>
+        <td>Soyad</td>
+        <td>Mail</td>
+        <td>Telefon</td>
+        <td>Unvan</td>
+        <td>Sifre</td>
+        <td>Duyme</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@a</td>
+            <td>@x.Ad</td>
+            <td>@x.Soyad</td>
+            <td>@x.Mail</td>
+            <td>@x.Telefon</td>
+            <td>@x.Unvan</td>
+            <td>@x.Sifre</td>
+            <td>
+                <a class="btn btn-primary" href="@Url.Action("UpdateAdmin","Admin",new {Id=x.Id })" >Yenile</a>
+
+                
+            </td>
+
+            @{ a++;}
+        </tr>
+        
+        }
+    </tbody>
+</table>

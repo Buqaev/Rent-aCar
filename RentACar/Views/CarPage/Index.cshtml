@@ -1,0 +1,502 @@
+﻿@model RentACar.Models.CarPageDto
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Panel2Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<!-- Mirrored from www.shmai.com/preview/moveo-html/fleet-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jul 2022 18:00:36 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Moveo - HTML Template | Fleet Grid</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="~/moveo-html/css/style.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        
+        <!-- End Main Header -->
+        <!-- Page Title -->
+        <section class="page-title"   style="background-image:url(/moveo-html/images/background/9.jpg);" >
+            
+            <div class="auto-container">
+                <div class="inner-box">
+                    <h1>Masin Siyahisi</h1>
+                    <div class="bread-crumb"><a href="@Url.Action("Index","Page")">AnaSeife &nbsp; ||</a> <i class="current">Siyahi</i></div>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title -->
+        <!--Sidebar Page Container-->
+        <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!-- Sidebar Side -->
+                    <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                        <aside class="sidebar">
+                            <div class="inner sticky-top">
+                                <!-- Search -->
+                                <div class="sidebar-widget">
+                                    <!-- Fleet Form Two -->
+                                    <div class="fleet-form-two">
+                                        <form method="post" action="http://www.shmai.com/preview/moveo-html/contact.html">
+                                            <div class="widget-inner">
+                                                <div class="row clearfix">
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                        <label>Pickup Location</label>
+                                                        <input type="text" name="location" value="" placeholder="Enter Location" required>
+                                                        <span class="icon fas fa-map-marker-alt"></span>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                        <label>Destination</label>
+                                                        <input type="text" name="location" value="" placeholder="Enter Location" required>
+                                                        <span class="icon fas fa-map-marker-alt"></span>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group margin col-lg-12 col-md-12 col-sm-12">
+                                                        <label>Pickup Date</label>
+                                                        <input class="datepicker" type="text" name="location" value="" placeholder="Select Date" required>
+                                                        <span class="icon far fa-calendar-alt"></span>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                                        <input type="text" placeholder="Hours" required>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                                        <input type="text" placeholder="Mins" required>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="select-box">
+                                                            <input type="checkbox" name="payment-group" id="radio-one">
+                                                            <label for="radio-one">
+                                                                <span class="default-check"></span>
+                                                                <span class="check-icon fa fa-check"></span>
+                                                                I agreed to <a href="#">Terns & Conditions</a>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="txt">start booking</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Search -->
+
+
+
+
+                                <div class="sidebar-widget">
+                                    <!-- Fleet Form Two -->
+                                    <div class="fleet-form-two">
+                                        @*<form method="post" action="http://www.shmai.com/preview/moveo-html/contact.html">*@
+                                        <form method="get" action="@Url.Action("Index","CarPage")">
+                                            <div class="widget-inner">
+                                                <div class="row clearfix">
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <label>Search Filters</label>
+                                                        <select class="custom-select-box" name="MarkaId">
+                                                            <option>Select Make</option>
+                                                            @foreach (var x in Model.CarMarkas)
+                                                            {
+                                                                <option value="@x.Id">@x.Ad</option>
+                                                            }
+
+                                                        </select>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <select class="custom-select-box" name="ModelId">
+                                                            <option>Model</option>
+                                                            @foreach (var x in Model.Cars2)
+                                                            {
+                                                                <option value="@x.Id">@x.Model</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <select class="custom-select-box" name="items">
+                                                            <option>Fuel Type</option>
+                                                            <option>Fuel 01</option>
+                                                            <option>Fuel 02</option>
+                                                            <option>Fuel 03</option>
+                                                            <option>Fuel 04</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <select class="custom-select-box" name="items">
+                                                            <option>Vehicle Condition</option>
+                                                            <option>25%</option>
+                                                            <option>50%</option>
+                                                            <option>75%</option>
+                                                            <option>100%</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <select class="custom-select-box" name="items">
+                                                            <option>Body Style</option>
+                                                            <option>Old</option>
+                                                            <option>Current</option>
+                                                            <option>Latest</option>
+                                                            <option>Unique</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <select class="custom-select-box" name="items">
+                                                            <option>Transmission</option>
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- Form Group -->
+                                                    <div class="form-group style-two col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="select-box">
+                                                            <input type="checkbox" name="payment-group" id="radio-two">
+                                                            <label for="radio-two">
+                                                                <span class="default-check"></span>
+                                                                <span class="check-icon fa fa-check"></span>
+                                                                I agreed to <a href="#">Terns & Conditions</a>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Form Group
+            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="txt">start booking</span></button>
+            </div>-->
+                                                </div>
+                                            </div>
+                                            <div class="widget-inner style-two">
+                                                <!-- Range Slider One -->
+                                                <div class="range-slider-one">
+                                                    <div class="title">Price Range</div>
+                                                    <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
+                                                    <div class="price-range-slider"></div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-inner style-two">
+                                                <!-- Range Slider Two -->
+                                                <div class="range-slider-two">
+                                                    <div class="title">reg. year</div>
+                                                    <div class="input"><input type="text" class="property-amount-2" name="field-name" readonly></div>
+                                                    <div class="price-range-slider-two"></div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-inner style-three">
+                                                <!-- Range Slider Three -->
+                                                <div class="range-slider-three">
+                                                    <div class="title">mileage</div>
+                                                    <div class="input"><input type="text" class="property-amount-3" name="field-name" readonly></div>
+                                                    <div class="price-range-slider-three"></div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-inner style-two">
+                                                <!-- Form Group -->
+                                                <div class="form-group style-three col-lg-12 col-md-12 col-sm-12">
+                                                    <label>OTHER OPTIONS</label>
+                                                    <div class="select-box">
+                                                        <input type="checkbox" name="payment-group" id="radio-three">
+                                                        <label for="radio-three">
+                                                            <span class="default-check"></span>
+                                                            <span class="check-icon fa fa-check"></span>
+                                                            GPS Facility
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- Form Group -->
+                                                <div class="form-group style-three col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="select-box">
+                                                        <input type="checkbox" name="payment-group" id="radio-four">
+                                                        <label for="radio-four">
+                                                            <span class="default-check"></span>
+                                                            <span class="check-icon fa fa-check"></span>
+                                                            Refrigrator
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- Form Group -->
+                                                <div class="form-group style-three col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="select-box">
+                                                        <input type="checkbox" name="payment-group" id="radio-five">
+                                                        <label for="radio-five">
+                                                            <span class="default-check"></span>
+                                                            <span class="check-icon fa fa-check"></span>
+                                                            Air Conditioning
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- Form Group -->
+                                                <div class="form-group style-three col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="select-box">
+                                                        <input type="checkbox" name="payment-group" id="radio-six">
+                                                        <label for="radio-six">
+                                                            <span class="default-check"></span>
+                                                            <span class="check-icon fa fa-check"></span>
+                                                            Cruise Control
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                @*<a class="read-more" href="#">Read More <span class="icon fa fa-caret-down"></span></a>*@
+                                            </div>
+
+                                            <button  type="submit" style="background-color: #ff6907;" class="read-more btn icon flaticon-search">Axdar</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </aside>
+                    </div>
+                    <!--Content Side-->
+                    <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                        <div class="content">
+                            <!--Sort By-->
+                            <div class="items-sorting">
+                                <div class="row clearfix">
+                                    <div class="pull-left col-lg-4 col-md-4 col-sm-12">
+                                        <div class="total-posts">Siyahida @Model.Cars.Count() Masin Var</div>
+                                    </div>
+                                    <div class="pull-left col-lg-8 col-md-8 col-sm-12">
+                                        <!-- Select Column -->
+                                        <div class="select-column clearfix">
+                                            @*<ul class="fleed-options">
+                                <li class="active"><a href="fleet-grid.html"><span class="icon flaticon-menu-2"></span></a></li>
+                                <li><a href="fleet-list.html"><span class="icon flaticon-list"></span></a></li>
+                            </ul>*@
+                                            <form method="get" action="@Url.Action("Index","CarPage")">
+                                                <ul class="fleed-options">
+
+                                                    <button type="submit" style="background-color: #ff6907;" class="btn icon flaticon-search">Axdar</button>
+
+                                                </ul>
+
+                                                <div class="form-group">
+
+                                                    <select class="custom-select-box" name="CartypeId">
+                                                        <option>Butun Masinllar</option>
+
+                                                        @foreach (var x in Model.CarTypes)
+                                                        {
+
+                                                           
+                                                            <option value="@x.Id">
+
+                                                                @x.Ad
+                                                            </option>
+
+                                                        }
+
+
+                                                    </select>
+                                                    @*<button type="submit" class="btn btn-primary">Axdar</button>*@
+                                            </form>
+
+
+                                            @*<form method="get" action="@Url.Action("Index","News")">
+                                Axtaris Et
+                                <select name="CategoryId" class="form-control">
+                                    <option value="">--Butun Kateqoriyalar</option>
+                                    @foreach (var c in Model.Categories)
+                                    {
+                                        <option value="@c.Id"> @c.Name</option>
+                                    }
+
+                                </select>
+                                <button  type="submit" class="btn btn-primary">Axtar</button>
+                            </form>*@
+
+
+                                        </div>
+                                        @*<div class="form-group">
+                            <select class="custom-select-box" name="sort-by">
+                                <option>Default Sorting</option>
+                                <option>By Order</option>
+                                <option>By Price</option>
+                            </select>
+                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            @foreach (var x in Model.Cars)
+                            {
+                                <div class="project-block-two col-xl-4 col-md-6 col-sm-12">
+                                    <div class="inner-box">
+                                        <div class="image">
+                                            <a href="@Url.Action("CarPageDetail","CarPage",new {Id=x.Id })"><img src="~/Images/@x.Sekil" alt="" /></a>
+                                        </div>
+                                        <div class="lower-content">
+                                            <h3><a href="@Url.Action("CarPageDetail","CarPage",new {Id=x.Id })">@x.CarMarka.Ad</a></h3>
+                                            <ul class="list">
+                                                <li><span>Tutum: </span>@x.SernisinSayi Sərnişin</li>
+                                                <li><span>Daxili: </span>Rənglənmiş pəncərələr</li>
+                                                <li><span>Xüsusiyyətləri: </span>@x.Baqaj</li>
+                                            </ul>
+                                            <a href="@Url.Action("CarPageDetail","CarPage",new {Id=x.Id })" class="booked">Kitabdan <span>$@x.Qiymet1_3/Bunluk</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <!-- Project Block Two -->
+
+                        </div>
+                        <!-- Styled Pagination -->
+                        <nav class="mt-3">
+                            <ul class="pagination pagination-sm">
+                                <li class="page-item disabled">
+                                    @if (ViewBag.Page - 1 != 0)
+                                    {
+                                        <a class="page-link" href="@Url.Action("Index","CarPage",new { page = ViewBag.Page-1  , p = ViewBag.Axtaris, CatId = ViewBag.CatId , TagId = ViewBag.TagId})">Əvvəlki</a>
+                                    }
+                                </li>
+                                @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                                {
+                                    <li class="page-item  @(i==ViewBag.Page?"active":"")"><a class="page-link" href="@Url.Action("Index","CarPage",new { page = i, p = ViewBag.Axtaris, CatId = ViewBag.CatId , TagId = ViewBag.TagId })">@i</a></li>
+                                }
+                                <li class="page-item">
+                                    @if (ViewBag.Page + 1 <= ViewBag.TotalPage)
+                                    {
+                                        <a class="page-link" href="@Url.Action("Index","CarPage",new { page = ViewBag.Page+1 , p = ViewBag.Axtaris , CatId = ViewBag.CatId , TagId = ViewBag.TagId})">Sonrakı</a>
+                                    }
+                                </li>
+                            </ul>
+                        </nav>
+
+
+
+
+                        @*<div class="styled-pagination centered">
+            <ul class="clearfix">
+                <li class="prev"><a href="#"><span class="flaticon-go-back-left-arrow"></span></a></li>
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li class="next"><a href="#"><span class="flaticon-right-arrow-forward"></span></a></li>
+            </ul>
+        </div>*@
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call To Action Section Two -->
+        <section class="call-to-action-section-two">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!-- Title Column -->
+                    <div class="title-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="inner-column">
+
+                            <div class="text"><h2>Book Us For All Of Your <br> Luxury Transportation Needs</h2></div>
+                            <div class="icon flaticon-support-2"></div>
+                        </div>
+                    </div>
+                    <!-- Info Column -->
+                    <div class="info-column col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="title">For quick Live Assistance</div>
+                            <div class="rating">
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                            </div>
+                            <a class="phone" href="tel:369-2900-4800">(369) 2900 4800</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Call To Action Section Two -->
+        <!-- Main Footer -->
+        
+        <!-- End Main Footer -->
+    </div>
+    <!--End pagewrapper-->
+    <!-- Color Palate / Color Switcher -->
+    <div class="color-palate">
+        <div class="color-trigger">
+            <i class="fa fa-cog"></i>
+        </div>
+        <div class="color-palate-head">
+            <h6>Choose Your Color</h6>
+        </div>
+        <div class="various-color clearfix">
+            <div class="colors-list">
+                <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
+                <span class="palate yellow-color" data-theme-file="css/color-themes/yellow-theme.css"></span>
+                <span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
+                <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
+                <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
+                <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
+                <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
+                <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
+                <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
+                <span class="palate red-color" data-theme-file="css/color-themes/red-theme.css"></span>
+                <span class="palate gray-color" data-theme-file="css/color-themes/gray-theme.css"></span>
+            </div>
+        </div>
+        <ul class="rtl-version option-box">
+            <li class="rtl">RTL Version</li>
+            <li>LTR Version</li>
+        </ul>
+        <a href="#" class="purchase-btn">Purchase now $17</a>
+        <div class="palate-foo">
+            <span>You will find much more options for colors and styling in admin panel. This color picker is used only for demonstation purposes.</span>
+        </div>
+    </div>
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-bs-target="html"><span class="fa fa-angle-up"></span></div>
+    <!--Scroll to top-->
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/vivus.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/color-settings.js"></script>
+</body>
+
+
+<!-- Mirrored from www.shmai.com/preview/moveo-html/fleet-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jul 2022 18:00:41 GMT -->
+</html>

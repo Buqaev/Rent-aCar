@@ -1,0 +1,280 @@
+﻿@model RentACar.Models.BlogPagDto
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Panel2Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Moveo - HTML Template | Fleet Detail</title>
+    <!-- Stylesheets -->
+    <link href="~/moveo-html/css/bootstrap.css" rel="stylesheet">
+    <link href="~/moveo-html/css/style.css" rel="stylesheet">
+    <link href="~/moveo-html/css/icons.css" rel="stylesheet">
+    <link href="~/moveo-html/css/responsive.css" rel="stylesheet">
+    <!-- Color Switcher Mockup -->
+    <link href="~/moveo-html/css/color-switcher-design.css" rel="stylesheet">
+    <!--Color Themes-->
+    <link id="theme-color-file" href="~/moveo-html/css/color-themes/default-theme.css" rel="stylesheet">
+    <link rel="shortcut icon" href="~/moveo-html/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="~/moveo-html/images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- End Main Header -->
+        <!-- Page Title -->
+        <section class="page-title" style="background-image:url(/moveo-html/images/background/11.jpg);">
+            <div class="auto-container">
+                <div class="inner-box">
+                    <h1>Standart Bloq</h1>
+                    <div class="bread-crumb">
+                        <a href="@Url.Action("Index","Page")">AnaSeife &nbsp; ||</a><i class="current">
+                            Standart Bloq
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title -->
+        <!-- Blog section -->
+        <section class="blog">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-8 col-md-12">
+                        <!-- Post 1-->
+                        @*<div class="blog-post blog-detail">
+            <div class="featured-image">
+                <iframe class="wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms" height="315"
+                        src="https://www.youtube.com/embed/v4ao6uEnpnk"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="title">
+                <a href="blog-detail.html">Book Luxury Limos For Special Parties</a>
+            </div>
+            <div class="metadata">
+                <ul>
+                    <li><span><i class="far fa-calendar-alt"></i>Sep 25, 2021</span></li>
+                    <li><span><i class="far fa-comment"></i>210 Comments</span></li>
+                    <li><span><i class="far fa-folder-open"></i>Rent a Car, Limousine</span></li>
+                </ul>
+            </div>
+            <div class="content">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquipea commodo consequat. Duis aute irure
+                    dolor in reprehenderit.
+                </p>
+            </div>
+            <a class="readmore" href="blog-detail.html">Read More</a>
+        </div>*@
+                        <!-- Post 3-->
+                        @foreach (var x in Model.Blogs)
+                        {
+                            <div class="blog-post blog-detail">
+                                <div class="featured-image wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <img src="~/Images/@x.Sekil" alt="image">
+                                </div>
+                                <div class="title">
+                                    <a href="@Url.Action("BlogDetail","BlogPage",new { Id=x.Id})">@x.Baslig</a>
+                                </div>
+                                <div class="metadata">
+                                    <ul>
+                                        <li><span><i class="far fa-calendar-alt"></i>@x.Tarix.ToString("dd.mm.yyyy")</span></li>
+                                        <li><span><i class="far fa-comment"></i>@x.BlogComments.Count() Comments</span></li>
+                                        <li><span><i class="far fa-folder-open"></i>@x.BlogCategory.Ad</span></li>
+                                    </ul>
+                                </div>
+                                <div class="content">
+                                    <p>
+                                        @x.Metn
+                                    </p>
+                                </div>
+                                <a class="readmore" href="@Url.Action("BlogDetail","BlogPage",new { Id=x.Id})">Daha çox oxu</a>
+                            </div>
+                        }
+
+                        <!-- Post 4-->
+                        <!-- Pagenation -->
+                        @*<div class="styled-pagination centered">
+            <ul class="clearfix">
+                <li class="prev"><a href="#"><span class="flaticon-go-back-left-arrow"></span></a></li>
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li class="next"><a href="#"><span class="flaticon-right-arrow-forward"></span></a></li>
+            </ul>
+        </div>*@
+                        <nav class="mt-3">
+                            <ul class="pagination pagination-sm">
+                                <li class="page-item disabled">
+                                    @if (ViewBag.Page - 1 != 0)
+                                    {
+                                        <a class="page-link" href="@Url.Action("Index","BlogPage",new { page = ViewBag.Page-1  , p = ViewBag.Axtaris, CatId = ViewBag.CatId , TagId = ViewBag.TagId})">Əvvəlki</a>
+                                    }
+                                </li>
+                                @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                                {
+                                    <li class="page-item  @(i==ViewBag.Page?"active":"")"><a class="page-link" href="@Url.Action("Index","BlogPage",new { page = i, p = ViewBag.Axtaris, CatId = ViewBag.CatId , TagId = ViewBag.TagId })">@i</a></li>
+                                }
+                                <li class="page-item">
+                                    @if (ViewBag.Page + 1 <= ViewBag.TotalPage)
+                                    {
+                                        <a class="page-link" href="@Url.Action("Index","BlogPage",new { page = ViewBag.Page+1 , p = ViewBag.Axtaris , CatId = ViewBag.CatId , TagId = ViewBag.TagId})">Sonrakı</a>
+                                    }
+                                </li>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                    <!-- Blog sidebar -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="blog-sidebar">
+                            <!-- Search widget -->
+                            <div class="blog-widget search-widget wow zoomIn" data-wow-delay="0ms"
+                                 data-wow-duration="1500ms">
+                                <form method="post" action="@Url.Action("Index", "BlogPage")">
+                                    <div class="form-group">
+
+                                        <label>Axdar</label>
+                                        <button type="submit" style="background-color:orangered; border-radius:15px; float:right; margin-bottom:5px; width:50px;height:35px;" id="submit" class="btn_1"> Axdar</button>
+
+                                        <input type="text" name="p" placeholder="Blog Baslq">
+
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End search widget -->
+                            <!-- Recent posts widget -->
+                            <div class="blog-widget recent-post-widget">
+                                <h2>Recent Posts</h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                                @foreach (var x in Model.Blogs2)
+                                {
+                                    <div class="text wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                        <div class="image">
+                                            <img height="90px;" width="100px;" src="~/Images/@x.Sekil" alt="image">
+                                        </div>
+                                        <h3><a href="#">@x.Baslig</a></h3>
+                                        <span>@x.Tarix.ToString("dd.mm.yyyy")</span>
+                                    </div>
+                                }
+
+                            </div>
+                            <!-- End widget -->
+                            <!-- Categories widget -->
+                            <div class="blog-widget categories-widget wow fadeInRight" data-wow-delay="0ms"
+                                 data-wow-duration="1500ms">
+                                <h2>Categories</h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                                <div class="catigories-list">
+                                    <ul>
+                                        @foreach (var x in Model.BlogCategories)
+                                        {
+                                            <li><span><a href="@Url.Action("Index","BlogPage", new {CatId = x.Id })">@x.Ad (@x.Blogs.Count())</a></span></li>
+                                        }
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Categories -->
+                            <!-- Add -->
+                            <div class="blog-widget blog-add" style="background-image: url(/moveo-html/images/background/18.png);">
+                                <h2>Sevimli avtomobiliniz həmişə mövcuddur.</h2>
+                                <a href="#" class="theme-btn btn-style-two"><span>rezervasyona başla</span></a>
+                                <div class="image">
+                                    <img src="~/moveo-html/images/resource/cars2.png" alt="image" class="wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                </div>
+                            </div>
+                            <!-- End widget -->
+                            <!-- Tags widget -->
+                            <div class="blog-widget tags-widget wow zoomIn" data-wow-delay="0ms"
+                                 data-wow-duration="1500ms">
+                                <h2>
+                                    Teqlər Bulud
+                                </h2>
+                                <div class="rating">
+                                    <i class="star fa fa-star"></i>
+                                </div>
+                                <div class="tags-list">
+                                    <ul>
+                                        @foreach (var x in Model.Tegs)
+                                        {
+                                            <li><a href="@Url.Action("Index","BlogPage", new {TagId = x.Id })">@x.Ad</a></li>
+                                        }
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Tags -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call To Action Section Two -->
+        <section class="call-to-action-section-two">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!-- Title Column -->
+                    <div class="title-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="inner-column">
+
+                            <div class="text">
+                                <h2>
+                                    Hamınız üçün Bizi Rezerv edin<br />
+                                    Lüks Nəqliyyat Ehtiyacları
+                                </h2>
+                            </div>
+                            <div class="icon flaticon-support-2"></div>
+                        </div>
+                    </div>
+                    <!-- Info Column -->
+                    <div class="info-column col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="title">Sürətli Canlı Yardım üçün</div>
+                            <div class="rating">
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                            </div>
+                            <a class="phone" href="tel:369-2900-4800">(369) 2900 4800</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="~/moveo-html/js/jquery.js"></script>
+
+        <script src="~/moveo-html/js/jquery-ui.js"></script>
+        <script src="~/moveo-html/js/bootstrap.min.js"></script>
+        <script src="~/moveo-html/js/jquery.fancybox.js"></script>
+        <script src="~/moveo-html/js/owl.js"></script>
+        <script src="~/moveo-html/js/wow.js"></script>
+        <script src="~/moveo-html/js/vivus.min.js"></script>
+        <script src="~/moveo-html/js/swiper.min.js"></script>
+        <script src="~/moveo-html/js/jquery.timepicker.min.js"></script>
+        <script src="~/moveo-html/js/appear.js"></script>
+        <script src="~/moveo-html/js/script.js"></script>
+        <script src="~/moveo-html/js/color-settings.js"></script>
+
+</body>

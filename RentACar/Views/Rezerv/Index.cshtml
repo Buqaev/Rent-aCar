@@ -1,0 +1,59 @@
+﻿@model List<RentACar.Models.Rezerv>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a=1;
+}
+
+<h2>Rezervasyon</h2>
+
+
+
+<br />
+<a href="@Url.Action("Index","Rezerv")" class="btn btn-primary">About Yarat</a>
+
+<h2>Abot Siyahi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Ad Soyad</td>
+            <td>Sekil</td>
+            <td>Unvan</td>
+            <td>Adres</td>
+            <td>Olke</td>
+            <td>Seher</td>
+            <td>ZipCod</td>
+            <td>Alinacaq Tarix</td>
+            <td>Qayratma Tarix</td>
+            <td>Masin</td>
+            <td>Odenilecek Mebleg</td>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@a</td>
+    <td>@x.User.Ad @x.User.Soyad</td>
+    <td>
+        <img style="border-radius:100%" width="60px;" height="70px;" src="~/Images/@x.User.Sekil" />
+    </td>
+    <td>@x.Unvan</td>
+    <td>@x.Adres</td>
+    <td>@x.Olke</td>
+    <td>@x.Seker</td>
+    <td>@x.ZipCode</td>
+    <td>@x.AlinmaTarix</td>
+    <td>@x.QaytarilmaTarix</td>
+    <td>@x.Car.CarMarka.Ad @x.Car.Model</td>
+    <td>@x.UmmiMebleg</td>
+
+   
+
+    @{ a++;}
+
+</tr>
+    }
+</table>

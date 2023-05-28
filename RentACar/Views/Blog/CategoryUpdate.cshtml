@@ -1,0 +1,27 @@
+﻿@model RentACar.Models.BlogCategory
+@{
+    ViewBag.Title = "CategoryUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BlogCategory Yenile</h2>
+
+<form method="post" action="@Url.Action("CateUpdate","Blog", new {Id = Model.Id })" role="form">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Ad</label>
+            <input type="text" value="@Model.Ad" name="Ad" class="form-control" id="exampleInputEmail1" placeholder="Ad Basliq Edin">
+        </div>
+       
+
+       
+
+
+
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Yenile</button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+﻿@model List<RentACar.Models.Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a = 1;
+}
+
+<br />
+<a class="btn btn-primary" href="@Url.Action("CateGetir","Blog")">Blog Yarat</a>
+<h2>Blog siyahi</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Baslig</td>
+                    <td>Metn</td>
+                    <td>Tarix</td>
+                    <td>Sekil</td>
+                    <td>Kategoriasi</td>
+                    <td>Duyme</td>
+                </tr>
+            </thead>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@a</td>
+                    <td>@x.Baslig</td>
+                    <td>@x.Metn</td>
+                    <td>@x.Tarix</td>
+                    <td><img src="~/Images/@x.Sekil" height="50px" /> </td>
+                    <td>@x.BlogCategory.Ad</td>
+                    <td>
+                        <a class="btn btn-info" href="@Url.Action("UpdateBlog","Blog",new { Id=x.Id})">Yenile</a>
+
+                        <a class="btn btn-danger" href="@Url.Action("Delate","Blog",new { Id=x.Id})">Sil</a>
+                    </td>
+                    @{ a++;}
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

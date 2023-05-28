@@ -1,0 +1,19 @@
+﻿@model IEnumerable<RentACar.Models.Service>
+
+@foreach (var x in Model)
+{
+    <div class="text">
+        <p>@x.Baslig</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="footer-widget text-widget">
+            <div class="widget-divider"></div>
+
+            <div class="text">
+                <p>@x.Metn</p>
+            </div>
+            <a href="@Url.Action("Index","ServicesPage")">Etrafli</a>
+        </div>
+    </div>
+}
+

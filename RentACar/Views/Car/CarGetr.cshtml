@@ -1,0 +1,97 @@
+﻿@model RentACar.Models.CarDto
+@{
+    ViewBag.Title = "CarGetr";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" action="@Url.Action("Create","Car")" enctype="multipart/form-data" role="form">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Markasi</label>
+            <select name="CarMarkalId" class="form-control">
+                <option>--Secin</option>
+                @foreach (var x in Model.CarMarkas)
+                {
+                    <option value="@x.Id">@x.Ad</option>
+                }
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Model</label>
+            <input type="text" name="Model" class="form-control" id="exampleInputEmail1" placeholder="Ad Basliq Edin">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">SuretQutusu</label>
+            <input type="text" name="SuretQutusu" class="form-control" id="exampleInputEmail1" placeholder="Ad Basliq Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">SernisinSayi</label>
+            <input type="text" name="SernisinSayi" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Baqaj</label>
+            <input type="text" name="Baqaj" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Klometraj</label>
+            <input type="text" name="Klometraj" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Buraxilisili</label>
+            <input type="text" name="Buraxilisili" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Qiymet1_3</label>
+            <input type="text" name="Qiymet1_3" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Qiymet4_12</label>
+            <input type="text" name="Qiymet4_12" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Qiymet12_30</label>
+            <input type="text" name="Qiymet12_30" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Qiymet30GundenCox</label>
+            <input type="text" name="Qiymet30GundenCox" class="form-control" id="exampleInputEmail1" placeholder="Ad Metn Edin">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Sinifi</label>
+            <select name="CarClassId" class="form-control">
+                <option>--Secin</option>
+                @foreach (var x in Model.CarClasses)
+                {
+                    <option value="@x.Id">@x.Ad</option>
+                }
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Novu</label>
+            <select name="CarTypeId" class="form-control">
+                <option>--Secin</option>
+                @foreach (var x in Model.CarTypes)
+                {
+                    <option value="@x.Id">@x.Ad</option>
+                }
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Sekil</label>
+            <input type="file" name="Sekil" class="form-control" id="exampleInputEmail1">
+        </div>
+
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Yarat</button>
+    </div>
+</form>

@@ -1,0 +1,1063 @@
+﻿@model RentACar.Models.HomPaDto
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+
+    int a = 1;
+}
+
+<h2>Index</h2>
+
+<section class="main-slider slide-index2">
+    <div class="banner-carousel">
+        <!-- Swiper -->
+        <div class="swiper-wrapper">
+            @foreach (var x in Model.Reklams)
+            {
+
+
+            <div class="swiper-slide slide"  style="background-image:url(/Images/@x.Sekil)">
+                @*~/moveo-html/images/main-slider/2.jpg*@
+
+
+                <div class="curve"></div>
+                <div class="curve-side"></div>
+                <div class="container">
+                    <div class="content">
+                        <div class="title">XosGelmisiniz</div>
+                        <h2>@x.Basliq</h2>
+                        <p>@x.Metn</p>
+                        <div class="btn-box">
+                            <a href="@Url.Action("Index","CarPage")" class="theme-btn btn-style-one"><span class="txt">Masin Siyahisi</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            }
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+<!-- End Main Slider -->
+<!-- Cars Filter -->
+<section class="cars-filter" style="background-image: url(/moveo-html/images/background/11.png)" >
+    <div class="auto-container">
+        @using (Html.BeginForm("Index", "CarPage", FormMethod.Get))
+        {
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <div class="sec-title">
+                        <div class="title-inner">
+                            <div class="rating">
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                            </div>
+                            <h2>ÖZ İDEAL<br> MAŞININI TAP</h2>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-12">
+                    <div class="cars-form">
+                        @*<form action="http://www.shmai.com/preview/moveo-html/get" method="post">*@
+
+                        <div class="row clearfix">
+                            <div class="form-group col-lg-5 col-md-5 col-sm-5">
+
+                                <select class="custom-select-box" name="MarkaId">
+                                    <option>Masin Markasi</option>
+                                    @foreach (var x in Model.CarMarkas)
+                                    {
+                                        <option value="@x.Id">@x.Ad</option>
+                                    }
+
+                                </select>
+                            </div>
+
+                            <div class="form-group col-lg-2 col-md-2 col-sm-2"></div>
+
+                                <div class="form-group col-lg-5 col-md-5 col-sm-5">
+
+                                    <select class="custom-select-box" name="ModelId">
+                                        <option>Masin Marka</option>
+                                        @foreach (var x in Model.Cars)
+                                        {
+                                            <option value="@x.Id">@x.Model</option>
+                                        }
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            @*</form>*@
+                        </div>
+                </div>
+                <div class="form-group col-lg-2 col-md-12">
+                    <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="icon fa fa-angle-right"></span><span class="txt">Axdar</span></button>
+                </div>
+            </div>
+        }
+        </div>
+</section>
+<!-- End Cars Filter -->
+<!-- Services Section  -->
+<section class="services-index2">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @foreach (var x in Model.Xidmets)
+            {
+                <div class="services-block card-box wow fadeInLeft col-lg-4 col-md-4 col-sm-6" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="icon">
+                        <div class="svg-icon" id="svg-1" data-svg-icon="~/moveo-html/images/svgs/moveo-01.svg">
+                        </div>
+                    </div>
+                    <h3>@x.Basliq</h3>
+                    <div class="text">
+                   @x.Metn
+                    </div>
+                    <a href="#">Read more</a>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+<!-- End Services Section  -->
+<!-- project section -->
+<section class="project-sec-index2">
+    <div class="auto-container">
+        <div class="side-background"></div>
+        <!-- title sec -->
+        <div class="sec-title2 centered">
+            <div class="title-inner">
+                <div class="icon-bar">
+                    <span class="icon-Coexo-Logo-Black--01"></span>
+                </div>
+                <h2>Choose Your car</h2>
+                <p>Incididunt ut labore dolore magna aliqua umt enim adinim veniam, quis nostrud exercitation<br> ullamco laboris nisi ut aliquip ex consequat aute irure dolor in reprehenderit</p>
+            </div>
+        </div>
+        <!-- portfolio tabs -->
+        <div class="project-tab">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#p1-tab" role="tab" aria-controls="nav-home-tab" aria-selected="true">Latest deals</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#p2-tab" role="tab" aria-controls="nav-profile-tab" aria-selected="false">economy class</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#p3-tab" role="tab" aria-controls="nav-contact-tab" aria-selected="false">premium class</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="p1-tab" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- Fist tab data -->
+                    <div class="row clearfix">
+                        @foreach (var x in Model.Cars)
+                        {
+                            <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box project-tab-content">
+                                    <div class="image">
+                                        <a href="fleet-detail.html"><img src="~/Images/@x.Sekil" alt="" /></a>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3><a href="fleet-detail.html">@x.CarMarka.Ad</a></h3>
+                                        <div class="price-outer">
+                                            <div class="price-inner">Qiymet<span>$@x.Qiymet1_3</span> / Gunlik</div>
+                                        </div>
+                                        <div class="options-box">
+                                            <div class="row clearfix">
+                                                <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <ul class="list">
+                                                        <li><span class="icon flaticon-download-speed"></span>@x.Klometraj</li>
+                                                        <li><span class="icon flaticon-oil-1"></span>@x.SernisinSayi</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <ul class="list">
+                                                        <li><span class="icon flaticon-automatic-transmission"></span>@x.SuretQutusu</li>
+                                                        <li><span class="icon flaticon-portfolio-1"></span>@x.Baqaj</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="booking">
+                                            <a href="#" class="theme-btn book">Baxis</a>
+                                            <div class="heart flaticon-heart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="p2-tab" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <!-- Second tab data -->
+                    <div class="row clearfix">
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="~/moveo-html/images/project/1.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/2.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/3.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/resource/product-10.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/1.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">McLaren GT Super</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/5.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">Porsche 911 Carrer</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/6.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">Audi E-Tron</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="p3-tab" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <!-- Third tab data -->
+                    <div class="row clearfix">
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="~/moveo-html/images/project/1.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/2.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/3.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/resource/product-10.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">BMW xDrive</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/1.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">McLaren GT Super</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/5.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">Porsche 911 Carrer</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project block -->
+                        <div class="project-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box project-tab-content">
+                                <div class="image">
+                                    <a href="fleet-detail.html"><img src="images/project/6.png" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <h3><a href="fleet-detail.html">Audi E-Tron</a></h3>
+                                    <div class="price-outer">
+                                        <div class="price-inner">From <span>$30</span> / Day</div>
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-download-speed"></span>56,500</li>
+                                                    <li><span class="icon flaticon-oil-1"></span>4 Persons</li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <ul class="list">
+                                                    <li><span class="icon flaticon-automatic-transmission"></span>Automatic</li>
+                                                    <li><span class="icon flaticon-portfolio-1"></span>3 Bags</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking">
+                                        <a href="#" class="theme-btn book">Book now</a>
+                                        <div class="heart flaticon-heart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End project section -->
+<!-- Counter Section -->
+<section class="counter-section counter-style2" style="background-image: url(~/moveo-html/images/resource/counter-11.png)">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <!-- Image Column -->
+            <div class="image-column col-lg-4 col-md-12 col-sm-12">
+                <div class="inner-column counter-img1 wow slideInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <img src="~/moveo-html/images/resource/counter-9.png" alt="" />
+                </div>
+            </div>
+            <!-- Counter Column -->
+            <div class="counter-column col-lg-4 col-md-12">
+                <div class="inner-column">
+                    <div @*class="single-item-carousel owl-carousel owl-theme"*@>
+                        
+                        <div class="slide">
+                            <!-- Fact Counter -->
+                            <div class="fact-counter">
+                                <div class="auto-container">
+                                    <div class="row clearfix">
+                                        <!--Column-->
+                                        <div class="column counter-column col-lg-4 col-md-4 col-sm-12">
+                                            <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="2500" data-stop="@ViewBag.MasinSay">0</span>
+                                                    <h4 class="counter-title">ARAÇLAR </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Column-->
+                                        <div class="column counter-column col-lg-4 col-md-4 col-sm-12">
+                                            <div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="2500" data-stop="@ViewBag.UserSay">0</span>
+                                                    <h4 class="counter-title">İstifadəçilər</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Column-->
+                                        <div class="column counter-column col-lg-4 col-md-4 col-sm-12">
+                                            <div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="3500" data-stop="@ViewBag.RezervSay">0</span>
+                                                    <h4 class="counter-title">Hadisələr</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Image Column -->
+            <div class="image-column right-column col-lg-4 col-md-12 col-sm-12">
+                <div class="inner-column counter-img2 wow slideInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <img src="~/moveo-html/images/resource/counter-10.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Counter Section -->
+<!-- Work section -->
+<section class="work-section">
+    <div class="container">
+        <div class="container-inner">
+            <!-- title sec -->
+            <div class="sec-title2 centered">
+                <div class="title-inner">
+                    <div class="icon-bar">
+                        <span class="icon-Coexo-Logo-Black--01"></span>
+                    </div>
+                    <h2>bu necə işləyir</h2>
+                    <p>Deyerli musderi, biz size qisa yolla masini nece rezerv etmeyi <br>addim-addim izah edirik</p>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <!-- work block -->
+                <div class="work-block card-box wow slideInLeft col-lg-4 col-md-4 col-sm-6" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <!-- Backround arrow -->
+                    <div class="background-arrow"></div>
+                    <div class="icon-box">
+                        <div class="svg-icon" id="svg-4" data-svg-icon="/moveo-html/images/svgs/moveo-19.svg">
+                        </div>
+                    </div>
+                    <span>: ADDIM 1 :</span>
+                    <a href="#">Təyinat seçin</a>
+                </div>
+                <!-- work block -->
+                <div class="work-block card-box wow zoomIn animated col-lg-4 col-md-4 col-sm-6" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <!-- Backround arrow -->
+                    <div class="background-arrow"></div>
+                    <div class="icon-box">
+                        <div class="svg-icon" id="svg-5" data-svg-icon="/moveo-html/images/svgs/moveo-05.svg">
+                        </div>
+                    </div>
+                    <span>: ADDIM 2 :</span>
+                    <a href="#">Avtomobilinizi bron edin</a>
+                </div>
+                <!-- work block -->
+                <div class="work-block card-box wow slideInRight col-lg-4 col-md-4 col-sm-6" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="icon-box">
+                        <div class="svg-icon" id="svg-6" data-svg-icon="/moveo-html/images/svgs/moveo-04.svg">
+                        </div>
+                    </div>
+                    <span>: ADDIM 3 :</span>
+                    <a href="#">Sürüşünüzdən həzz alın</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="products" style="background-image: url(~/moveo-html/images/background/pattern-4.png); margin-top: 120px;">
+        <div class="container wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+            <img src="~/moveo-html/images/resource/product-33.png" alt="image">
+        </div>
+    </div>
+</section>
+<!-- Work section -->
+<!-- Call to action -->
+<section class="call-to-action-section-index-2">
+    <div class="curve"></div>
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- call to action block -->
+            <div class="call-to-action-block col-lg-3 col-md-5 col-sm-6">
+                <div class="logo-img">
+                    <span class="icon-Coexo-Logo-Black--01"></span>
+                    <span class="title">
+                        Moveo
+                        <i>Auto icarəsi</i>
+                    </span>
+                </div>
+            </div>
+            <!-- call to action block -->
+            <div class="wow fadeInDown text-center call-to-action-block col-lg-6 col-md-7 col-sm-6" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <h3>PREMIUM MAŞIN İCARƏSİ XİDMƏTİ</h3>
+            </div>
+            <!-- call to action block -->
+            <div class="call-to-action-block text-end col-lg-3 col-md-12 wow slideInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <a href="@Url.Action("Index","CarPage")" class="theme-btn btn-style-two"><span>Masin Siyahisi</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Call to action -->
+<!-- Products body styles -->
+<section class="product-body-styles">
+    <div class="container">
+        <!-- title sec -->
+        <div class="sec-title2 centered">
+            <div class="title-inner">
+                <div class="icon-bar">
+                    <span class="icon-Coexo-Logo-Black--01"></span>
+                </div>
+                <h2>Avtomobilinizi seçin</h2>
+                <p>Halhazirda varolan masin tiplerini size teqdim edirik<br> </p>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <!-- prodect-style-block -->
+            @foreach (var x in Model.CarTypes)
+            {
+
+                <div class="prodect-style-block col-lg-4 col-md-6 col-sm-12">
+                    <div class="block-inner wow slideInLeft" data-wow-delay="0ms"  data-wow-duration="1500ms">
+                        <span class="style-nmbr">@a</span>
+                        <div class="image">
+                            <img src="~/Images/@x.Icon"  style="height:200px;" alt="iage">
+                        </div>
+                        <div class="text">
+                            <h3>@x.Ad</h3>
+                            @*<span>@x.Cars.Sum(x=>x.CarMarkalId)</span>*@
+                        </div>
+                    </div>
+                    
+                </div>
+
+                { a++; }
+            }
+
+
+                <!-- prodect-style-block -->
+
+            </div>
+    </div>
+</section>
+<!-- End Products body styles -->
+<!-- Featured section -->
+<section class="featured-section-index2">
+    <!-- title sec -->
+    <div class="sec-title2 centered">
+        <div class="title-inner">
+            <div class="icon-bar">
+                <span class="icon-Coexo-Logo-Black--01"></span>
+            </div>
+            <h2>NİYƏ BİZİ SEÇİRSİNİZ</h2>
+            <p>Incididunt ut labore dolore magna aliqua umt enim adinim veniam, quis nostrud exercitation<br> ullamco laboris nisi ut aliquip ex consequat aute irure dolor in reprehenderit</p>
+        </div>
+    </div>
+    <!-- Featured section tab data -->
+    <div class="inner-featured-section-index2" style="background-image: url(~/moveo-html/images/background/12.png);">
+        <div class="auto-container">
+            <nav>
+                <div class="nav nav-tabs" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home1-tab" data-bs-toggle="tab" href="#f1-tab" role="tab" aria-controls="nav-home1-tab" aria-selected="true">our mission</a>
+                    <a class="nav-item nav-link" id="nav-profile1-tab" data-bs-toggle="tab" href="#f2-tab" role="tab" aria-controls="nav-profile1-tab" aria-selected="false">Best experience</a>
+                    <a class="nav-item nav-link" id="nav-contact1-tab" data-bs-toggle="tab" href="#f3-tab" role="tab" aria-controls="nav-contact1-tab" aria-selected="false">dream vehicles</a>
+                </div>
+            </nav>
+            <div class="tab-content">
+                @foreach (var x in Model.Services)
+                {
+                    <div class="tab-pane fade show active" id="f1-tab" role="tabpanel" aria-labelledby="nav-home1-tab">
+                        <div class="row clearfix">
+                            <!-- featured block -->
+                            <div class="featured-block col-lg-5 col-md-6 col-sm-6">
+                                <div class="featured-img wow slideInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <img src="~/Images/@x.Sekil" alt="image">
+                                </div>
+                            </div>
+                            <!-- featured block -->
+                            <div class="featured-block col-lg-7 col-md-6 col-sm-6">
+                                <div class="featured-text wow slideInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <p>@x.Metn</p>
+                                    <h3>@x.Baslig</h3>
+                                    <ul class="list-style-index2">
+                                        <li>For Upto 8 Passengers Vehicles</li>
+                                        <li>Incredible Sound System Installed</li>
+                                        <li>Latest Model Vehicles</li>
+                                        <li>Insured and Certified Drivers & Licensed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+               
+            </div>
+            <!-- call to action botton -->
+            <div class="call-detail wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <ul>
+                    <li>Call For Booking</li>
+                    <li class="contact-no">(369) 2900 4800</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Featured section -->
+<section class="fvrt-cars">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12">
+                <div class="info-boxed">
+                    <div class="image wow slideInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <img src="~/moveo-html/images/project/1.jpg" alt="image">
+                        <div class="layr">
+                            <h3>
+                                SEVDİYİNİZ MASHINDIR<br />
+                                HƏMİŞƏ MEVCUTDUR.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="info-boxed">
+                    <div class="image wow slideInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <img src="~/moveo-html/images/project/2.jpg" alt="image">
+                        <div class="layr">
+                            <h3>İNDİ AŞAĞI DÜZEYƏ<br />
+                            REZERVASYON EDİN</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial Section -->
+<section class="testimonial-2">
+    <div class="container">
+        <!-- title sec -->
+        <div class="sec-title2 centered">
+            <div class="title-inner">
+                <div class="icon-bar">
+                    <span class="icon-Coexo-Logo-Black--01"></span>
+                </div>
+                <h2>
+                    Müştəri rəyləri
+                </h2>
+                <p>Hər yerdə milyonlarla razı müştərimiz var!</p>
+            </div>
+        </div>
+        <div class="inner-container">
+            <div class="single-item-carousel-2 owl-carousel owl-theme">
+                <!-- Testimonial Block -->
+                @foreach (var x in Model.customerReviews)
+                {
+                    <div class="testimonial-block text-center">
+                        <p>@x.Metn</p>
+                        <div class="lower-box">
+                            <div class="box-inner">
+                                <div class="info-box">
+                                    <div class="info-inner">
+                                        <div class="image">
+                                            <img src="~/Images/@x.User.Sekil" alt="" />
+                                        </div>
+                                        <h4>@x.User.Ad @x.User.Soyad</h4>
+                                        <div class="location"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Testimonial Block -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Testimonial Section -->
+<section class="contact-section2">
+    <!-- Map block -->
+    <div class="map">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="contact-block col-lg-5 co-md-6 col-sm-12">
+                    <div class="inner-block wow zoomIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="img">
+                            <span class="icon-Coexo-Logo-Black--01"></span>
+                            <span class="title">
+                                Moveo
+                                <i>Avtomobil icarəsi</i>
+                            </span>
+                        </div>
+                        <!-- text -->
+                        <div class="text">
+                            <!-- text block -->
+                            <h3>Ünvan:</h3>
+                            <p>1663 Hill Haven Drive, VIC 3000</p>
+                            <!-- text block -->
+                            <h3>Telefon NO:</h3>
+                            <p>(369) 2900 4800</p>
+                            <!-- text block -->
+                            <h3>Mail Adresi:</h3>
+                            <p>support@domain.com</p>
+                            <!-- text block -->
+                            <h3>is qrafiki:</h3>
+                            <p>Mon to Sat: 9:00 am to 7:00pm</p>
+                        </div>
+                        <!-- Social Media -->
+                        <ul>
+                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                            <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26360909.888257876!2d-113.74875964478716!3d36.242299409623534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2s!4v1571687902710!5m2!1sen!2s" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</section>

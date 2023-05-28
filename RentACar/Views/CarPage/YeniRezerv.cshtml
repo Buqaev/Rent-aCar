@@ -1,0 +1,443 @@
+﻿@model RentACar.Models.RezervDto
+@{
+    ViewBag.Title = "YeniRezerv";
+    Layout = "~/Views/Shared/_Panel2Layout.cshtml";
+
+
+}
+
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous"></script>
+   
+    
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+
+        <section class="listing-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="title">
+                            <span>step-01</span>
+                            <h2>Basic Information</h2>
+                            <div class="image">
+                                <i class="icon-shape icon-Shap-01"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Basic Information form -->
+                <table class="table table-active">
+                    <thead>
+                        <tr>
+
+                            <td>1-3 Gunluk Qiymet</td>
+                            <td>3-12 Gunluk Qiymet</td>
+                            <td>12-30 Gunluk Qiymet</td>
+                            <td>1 Aydan Cox</td>
+                        </tr>
+
+                    </thead>
+                    <tr>
+
+                        <td>@Model.Car.Qiymet1_3</td>
+                        <td>@Model.Car.Qiymet4_12</td>
+                        <td>@Model.Car.Qiymet12_30</td>
+                        <td>@Model.Car.Qiymet30GundenCox</td>
+
+                    </tr>
+                </table>
+                <form method="post" action="@Url.Action("YeniRezerv","CarPage",new {Id=Model.Car.Id})">
+
+                    <div class="row clearfix">
+                        <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <input type="text" name="Unvan" placeholder="Unvan">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Seker" placeholder="Seher">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="Adres" placeholder="Adres">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Olke" placeholder="Olke">
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        @*<div class="form-block col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <input type="text" name="Seker" placeholder="Seher">
+                    </div>
+                </div>*@
+
+                        @*<div class="form-block col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <input type="text" name="Adres" placeholder="Adres">
+                    </div>
+                </div>*@
+                        @*<div class="form-block col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <input type="text" name="Olke" placeholder="Olke">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Adres" placeholder="Adres">
+                    </div>
+                </div>
+                <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <input type="text" name="Adres" placeholder="Adres">
+                    </div>
+                </div>*@
+
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <!--<div class="form-group">
+    <select name="ZipCode" class="form-control">
+        <option>--Secin</option>
+
+        <option value="Model.Car.Id">1-3Gunlik Model.Car.Qiymet1_3 $</option>
+        <option value="Model.Car.Id">3-12Gunlik Model.Car.Qiymet4_12 $</option>
+        <option value="Model.Car.Id">12-30Gunluk Model.Car.Qiymet12_30 $</option>
+        <option value="Model.Car.Id">30Gunden Cox Model.Car.Qiymet30GundenCox $</option>-->
+                        @*@Model.Car.Id*@
+
+
+                        <!--</select>
+
+
+    </div>-->
+                        <div class="form-group">
+                            <input type="text" name="KartSifre" placeholder="KartSifre">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="ZipCode" placeholder="KartSifre">
+                        </div>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Tim, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Tim, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Tim, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="form-horizontal">
+
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Tim2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Tim2, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Tim2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        }
+
+                        @*@using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Tim2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Tim2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Tim2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        }*@
+
+                        <button type="submit">add listings</button>
+                        @*<div class="form-group">
+            <input type="text" name="ZipCode" placeholder="ZipKod">
+        </div>*@
+                    </div>
+                        <!-- Text Area -->
+                        @*<div class="col-12">
+                    <textarea placeholder="Description"></textarea>
+                </div>*@
+                    </div>
+
+
+
+
+
+
+
+
+                </form>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- End section -->
+        <!-- Location information section -->
+        <!--<section class="listing-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-12">
+                <div class="title">
+                    <span>step-02</span>
+                    <h2>Location Information</h2>
+                    <div class="image">
+                        <i class="icon-shape icon-Shap-01"></i>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- Location Information form -->
+        <!--<form>
+                <div class="row clearfix">
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name3" placeholder="Address 1">
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name4" placeholder="Address 1">
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select-box" id="ui-id-2" style="display: none;">
+                                <option>State</option>
+                                <option>Limo One</option>
+                                <option>Limo Two</option>
+                                <option>Limo Three</option>
+                                <option>Limo Four</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name5" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name6" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select-box" id="ui-id-3" style="display: none;">
+                                <option>Country</option>
+                                <option>Cuntry1</option>
+                                <option>Cuntry2</option>
+                                <option>Cuntry3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>-->
+        <!-- End Section -->
+        <!-- Medi Files selection -->
+        <!-- End Section -->
+        <!-- Vehicle features -->
+        <!--<section class="listing-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-12">
+                <div class="title">
+                    <span>step-04</span>
+                    <h2>Location Information</h2>
+                    <div class="image">
+                        <i class="icon-shape icon-Shap-01"></i>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- Vechile Features fields -->
+        <!--<form class="form">
+    <div class="row clearfix">-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle1"> GPS Facility
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle2"> Air Conditioning
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle3"> Smoking Allowed
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle4"> Free Wifi
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle5"> Accessories
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle6"> Refrigrator
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle7"> Cruise Control
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle8"> Outdoor Seating
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle8"> Instant Booking
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle9"> Parties & Funtions
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle10"> Certified Vehicle
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle11"> With Chauffeure
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="form-group">
+            <input type="checkbox" name="vehicle11"> Luxurious Interior
+        </div>
+    </div>-->
+        <!-- Vehicle featured block -->
+        <!--<div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <input type="checkbox" name="vehicle11"> Interior Lighting Effects
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>-->
+        <!-- End Section -->
+        <!-- Contact detail section -->
+        <!--<section class="listing-section " style="padding-bottom: 100px;padding-top: 75px;">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-12">
+                <div class="title">
+                    <span>step-05</span>
+                    <h2>Contact Details</h2>
+                    <div class="image">
+                        <i class="icon-shape icon-Shap-01"></i>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- Basic Information form -->
+        <!--<form>
+                <div class="row clearfix">
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name8" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name9" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-block col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" name="name10" placeholder="Phone(Optional)">
+                        </div>
+                    </div>
+                    <div class="col-12 terms-cond">
+                        <input type="checkbox"><span>
+                            I Agree To Company’s <a href="#">
+                                Terms Of Services &
+                                Conditions
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div class="row clearfix">
+                <div class="col-12">
+                    <button type="submit">add listings</button>
+                </div>
+            </div>
+        </div>
+    </section>-->
+        <!-- End section -->
+
+    </div>
+
+
+</body>
+

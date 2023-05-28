@@ -1,0 +1,40 @@
+﻿@model List<RentACar.Models.Reklam>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int a = 1;
+}
+
+<br />
+<a href="@Url.Action("Create","Reklam")" class="btn btn-primary">Reklam Yarat</a>
+
+<h2>Reklam siyahisi</h2>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>#</td>
+        <td>Basliq</td>
+        <td>Metn</td>
+        <td>Sekil</td>
+        <td>Duyme</td>
+    </tr>
+        </thead>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@a</td>
+    <td>@x.Basliq</td>
+    <td>@x.Metn</td>
+    <td><img src="~/Images/@x.Sekil"  height="50"/></td>
+    <td>
+        <a href="@Url.Action("UpdateReklam","Reklam",new {Id=x.Id })" class="btn btn-info">Yenile</a>
+
+        <a href="@Url.Action("Delate","Reklam" ,new { Id=x.Id})" class="btn btn-danger">Sil</a>
+    </td>
+
+    @{ a++;}
+
+</tr>
+    }
+</table>

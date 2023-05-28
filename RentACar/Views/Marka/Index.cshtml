@@ -1,0 +1,46 @@
+﻿@model List<RentACar.Models.CarMarka>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a = 1;
+}
+
+
+
+<br />
+<a href="@Url.Action("Create","Marka")" class="btn btn-primary">Marka Yarat</a>
+
+<h2>Masin Markalari</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Ad</td>
+            <td>Logo</td>
+            <td>Duyme</td>
+
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@a</td>
+            <td>@x.Ad</td>
+            <td>@x.Logo</td>
+
+            <td>
+                <a href="@Url.Action("UpdateMarka","Marka",new {Id=x.Id })" class="btn btn-info">Yenile</a>
+
+                <a href="@Url.Action("Delate","Marka" ,new { Id=x.Id})" class="btn btn-danger">Sil</a>
+            </td>
+
+            @{ a++;}
+
+        </tr>
+    }
+</table>
+
+
+

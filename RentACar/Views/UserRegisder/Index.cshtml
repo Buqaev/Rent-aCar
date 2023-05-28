@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<!-- Mirrored from www.shmai.com/preview/moveo-html/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jul 2022 18:00:12 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Moveo - HTML Template | Sign-In</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="~/moveo-html/css/style.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- Color Switcher Mockup -->
+    <link href="css/color-switcher-design.css" rel="stylesheet">
+    <!--Color Themes-->
+    <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        
+        <!-- End Main Header -->
+        <!-- Page Title -->
+        <section class="page-title" style="background-image:url(images/background/11.jpg);">
+            <div class="layer"></div>
+            <div class="auto-container">
+                <div class="inner-box">
+                    <h1>Sign-In</h1>
+                    <div class="bread-crumb">
+                        <a href="index-2.html">Home &nbsp; ||</a> <i class="current">Sign-In</i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title -->
+        <!-- Login Form Section -->
+
+        <section class="login">
+            <div class="container">
+                <div class="row justify-content-center g-0">
+                    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 g-0">
+                        <div class="desc">
+                            <div class="logo">
+                                <a href="index-2.html">
+                                    <span class="coexo-logo icon-Coexo-Logo-Black--01"></span>
+                                </a>
+                            </div>
+                            <div class="title">
+                                Sign-in using social media to get quick access
+                            </div>
+                            <div class="buttons">
+                                <a href="#" class="btn facebook">
+                                    <i class="fab fa-facebook-f pe-2"></i>
+                                    <span>Sign-in with Facebook</span>
+                                </a>
+                                <a href="#" class="btn twitter">
+                                    <i class="fab fa-twitter pe-2"></i>
+                                    <span>Sign-in with Twitter</span>
+                                </a>
+                                <a href="#" class="btn google">
+                                    <i class="fab fa-google-plus-g pe-2"></i>
+                                    <span>Sign-in with Google</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12 g-0">
+                        <div class="form">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#sign_in" type="button" role="tab">
+                                        Already A Member
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                            data-bs-target="#sign_up" type="button" role="tab">
+                                        I Am New Here
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="sign_in" role="tabpanel">
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email Address" autocomplete="off" id="email">
+                                            <input type="password" class="form-control" placeholder="Password" autocomplete="off" id="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="remember">Remeber Me</label>
+                                            <input type="checkbox" name="remember" id="remember" class="form-check">
+                                        </div>
+                                        <input type="submit" value="Sign-in" class="form-control btn">
+                                        <a href="#" class="forgot">Forgot Password</a>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="sign_up" role="tabpanel">
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Username" autocomplete="off" id="name">
+                                            <input type="email" class="form-control" placeholder="Email Address" autocomplete="off" id="email_sp">
+                                            <input type="password" class="form-control" placeholder="Password" autocomplete="off" id="password_sp">
+                                            <div class="text-center pt-2 pb-3">
+                                                I agree to the <a href="#"> privacy policy</a> and  <a href="#">terms of service</a>.
+                                            </div>
+                                        </div>
+                                        <input type="submit" value="Sign-up" class="form-control btn">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Login Form Section -->
+        <!-- Call To Action Section Two -->
+        <section class="call-to-action-section-two">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!-- Title Column -->
+                    <div class="title-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="inner-column">
+
+                            <div class="text">
+                                <h2>Book Us For All Of Your <br> Luxury Transportation Needs</h2>
+                            </div>
+                            <div class="icon flaticon-support-2"></div>
+                        </div>
+                    </div>
+                    <!-- Info Column -->
+                    <div class="info-column col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="title">For quick Live Assistance</div>
+                            <div class="rating">
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                            </div>
+                            <a class="phone" href="tel:369-2900-4800">(369) 2900 4800</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Call To Action Section Two -->
+        <!-- Main Footer -->
+        
+        <!-- End Main Footer -->
+    </div>
+    <!--End pagewrapper-->
+    <!-- Color Palate / Color Switcher -->
+    
+  
+</body>
+
+
+<!-- Mirrored from www.shmai.com/preview/moveo-html/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jul 2022 18:00:13 GMT -->
+</html>
+

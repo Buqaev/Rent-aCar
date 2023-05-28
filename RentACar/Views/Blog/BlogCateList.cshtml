@@ -1,0 +1,55 @@
+﻿@model List<RentACar.Models.BlogCategory>
+@{
+    ViewBag.Title = "BlogCateList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int a = 1;
+}
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Blog Kategoria Siyahisi</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Ad</td>
+
+                </tr>
+            </thead>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@a</td>
+                    <td>@x.Ad</td>
+
+                    <td>
+                        <a class="btn btn-info" href="@Url.Action("CategoryUpdate","Blog",new { Id=x.Id})">Yenile</a>
+
+                        <a class="btn btn-danger" href="@Url.Action("CategoriDelate","Blog",new { Id=x.Id})">Sil</a>
+                    </td>
+                    @{ a++;}
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h3>Categoria Yarat</h3>
+        <form method="post" action="@Url.Action("CreateBlogCategory","Blog")" role="form">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ad</label>
+                    <input type="text" name="Ad" class="form-control" id="exampleInputEmail1" placeholder="Ad Daxil Edin">
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Yarat</button>
+            </div>
+        </form>
+    </div>
+</div>
